@@ -1,0 +1,79 @@
+﻿body { 
+    padding-bottom: 70px; 
+}
+
+#navbar { 
+    width: 1130px; margin: 0px auto;
+}
+
+#navbar .leftarea { 
+    float: left; width: 200px;
+    padding-left: 20px;
+}
+
+#navbar .rightarea { 
+    float: right; width: 200px;
+    text-align:right; padding-right: 20px;
+}
+
+#navbar .centerarea { 
+    width: 300px; margin-left: auto; margin-right: auto;
+    text-align: center;
+}
+
+#navbar .centerarea button:first-child { 
+    margin-right: 30px;
+}
+
+#navbar .glyphicon { margin-right: 4px; }
+
+.navbar-default { 
+    background-color: #eeeeee; border: 1px solid #cccccc; border-bottom: 0px none;
+}
+
+#routineoverview .mainprocess { float: left; width: 300px; margin-left: 20px; }
+#routineoverview .arrowcontainer { float: left; width: 220px; min-height: 600px; background: url(../../images/arrow_toright.png) no-repeat 12px -45px; } 
+#routineoverview .currphase { float: left; width: 400px; min-height: 200px; position: relative; }
+#routineoverview .currphase p { font-size: 18px; color: #666666; margin: 20px 30px; }
+
+
+#routineoverview .mainprocess .group { height: 100px; padding-top: 20px; text-align: center; border: 2px solid #DDDDDD; color: #666666; border-radius: 6px; }
+#routineoverview .mainprocess .currgroup { background-color: #DFF0D8; border-color: #D6E9C6; color: #3C763D; }
+#routineoverview .mainprocess .groupidx { font-size: 16px; }
+#routineoverview .mainprocess .grouptitle { font-size: 18px; }
+#routineoverview .mainprocess .downconnector { background: url(../../images/arrow_tobottom.png) no-repeat 105px 2px; height: 90px; } 
+
+#maincontainer { margin-left: 300px;  min-height: 600px; }
+#maincontainer .casedesc { font-size: 15px; line-height: 25px; }
+#maincontainer .titlecol { text-align: center; vertical-align: middle;  }
+#maincontainer .checkarea i { position: absolute; }
+#maincontainer .incorrect input { border-color: red;  }
+#maincontainer .incorrect i { display: block; color: red; top: 9px; right: 5px; }
+#maincontainer .correct i { display: block; color: green; top: 9px; right: 5px; }
+#maincontainer .checkarea { position: relative; }
+#maincontainer .savingtype label { font-weight: normal; margin: 0px 15px 0px 3px;  }
+.fullcontainer { margin-left: 0px !important; }
+#fillerstepper { position: fixed; top: 100px; left: 0px; display: none; width: 260px; height: 400px; }
+#fillerstepper .glyphicon { float: right; font-weight: 600; } 
+#fillerstepper .glyphicon-question-sign { color: red; }
+#fillerstepper .glyphicon-ok { color: green; }
+
+.subjectinput { line-height: 25px; float: right; width: 350px; margin: 20px 0px; margin-right: 40px; }
+.subjectinput .title { font-size: 13px; float: left; margin-bottom: 12px; }
+.subjectinput .subject { float: left; margin-left: 10px; margin-bottom: 12px; border: 1px solid #b6b6b6; }
+.subjectinput input { height: 25px; padding: 2px; font-size: 14px; width: 200px; }
+.subjectinput .error { background-color: red; color: black; }
+
+
+#responsearea { display: none; }
+
+#subjectcontainer .summary { height: 30px; line-height: 30px; color: #414141; font-size: 14px; margin-bottom: 20px; }
+#subjectcontainer .summary .curr { font-weight: bold; margin-left: 10px; font-size: 16px; }
+#subjectcontainer .summary .hint { margin-left: 20px; color: #666666; }
+#subjectcontainer .alert { margin-top: 20px; }
+
+.noaction { padding: 15px; margin: 30px 0px; }
+
+.billtitle { font-size: 18px; font-weight: normal; text-align: center; color: #414141; }
+.billtitle .bankname { font-size: 18px; margin-right: 20px;  font-weight: bold; }
+.billtime { text-align: center; color: #666666; }
