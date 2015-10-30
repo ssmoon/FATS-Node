@@ -1,0 +1,25 @@
+﻿#subjectfiller .list-group { padding: 20px 30px; }
+#subjectfiller table { width: 100%; }
+#subjectfiller td { padding-right: 30px; }
+#subjectfiller .helparea { margin: 20px 0px; display: none; }
+#subjectfiller .errorarea  { display: none; margin: 20px 0px; }
+#subjectfiller .panel { display: none; }
+#subjectfiller .col-sm-2 { padding: 0px; }
+#subjectnav { border-bottom: 1px solid #cccccc; margin-top: 30px;  }
+
+#subjectnav .leftarea { 
+    float: left; width: 200px;
+    padding-left: 20px;
+}
+
+#subjectnav .rightarea { 
+    float: right; width: 200px;
+    text-align:right; padding-right: 20px;
+}
+
+#subjectnav .centerarea { 
+    width: 300px; margin-left: auto; margin-right: auto;
+    text-align: center;
+}
+
+#subjectnav .glyphicon { margin-right: 4px; }

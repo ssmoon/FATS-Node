@@ -1,0 +1,13 @@
+﻿
+.has-feedback .form-control-feedback {
+    top: 0;
+    right: -15px;
+}
+.has-feedback .input-group .form-control-feedback {
+    top: 0;
+    right: -30px;
+}
+
+.modal .modal-dialog { width: 900px; }
+.subdata { display: none; }
+

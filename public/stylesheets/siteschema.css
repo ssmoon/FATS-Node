@@ -1,0 +1,51 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2014-4-19, 10:29:48
+    Author     : bill
+*/
+
+body {
+    min-width: 1170px;
+    padding-bottom: 30px;
+   
+    font-family: Arial, 'Microsoft YaHei';
+}
+
+.maincont {  max-width: none !important; width: 1130px; padding: 10px; margin: 0px auto; }
+
+.actionbar { 
+    padding: 19px 20px 20px; margin-top: 15px; 
+    text-align: center;
+}
+
+.tabcontainer {
+    padding: 15px; padding-top: 20px;
+    border: 1px solid #ddd; border-top: 0px none;
+}
+
+.page-header-fix { margin-top: 0px; border-bottom: 0px none; }
+.page-header-fix small { margin-left: 30px; }
+
+footer { width: 1110px; margin: 30px auto; }
+footer .right { float: right; } 
+
+.billtitle { font-size: 18px; font-weight: normal; text-align: center; color: #414141; }
+.billtitle .bankname { font-size: 18px; margin-right: 20px;  font-weight: bold; }
+.billtime { text-align: center; color: #666666; }
+
+.userarea { width: 700px; margin: 0px auto; min-height: 600px; background-color: #f1f1f1; padding: 30px 40px; }
+.userarea h2 { margin: 0px 40px; border-bottom: 1px solid #999999; text-align: center; margin-bottom: 40px; padding-bottom: 20px; }
+.userarea button { margin-right: 20px; margin-top: 20px; }
+.userarea .btn-primary { width: 100px; }
+.userarea .alert { display: none; }
+
+#mainpage .jumbotron { color: #666666; padding: 30px; }
+#mainpage .jumbotron .cnname { font-size: 24px; margin-left: 40px; }
+
+#mainpage .row { color: #666666; }
+#mainpage .row h4 { font-weight: bold; }
+#mainpage .row p { min-height: 40px; } 

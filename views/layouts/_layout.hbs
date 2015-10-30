@@ -5,16 +5,38 @@
     <meta charset='utf-8' />
     <meta content='yes' name='apple-mobile-web-app-capable'>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <link href='http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css' rel='stylesheet' />
-    <link href='http://cdn.bootcss.com/datatables/1.9.4/css/jquery.dataTables.min.css' rel='stylesheet'>  
+    <link href='http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css' rel='stylesheet' />  
   </head>
   <body>
-    
-    {{{body}}}
+     <div class="navbar navbar-default  navbar-static-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">             
+                <a class="navbar-brand" href="/Home/Index">FATS</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href='/Settings/Teaching1Setting/Index'>案例管理</a></li>                     
+                    <li><a href='/Teachings/TeachingInit/Index'>开始上课</a></li>                                       
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">退出</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="maincont"> 
+       {{{body}}}
+    </div>
+
+    <footer>
+        <span class="right">@cheeserush</span>
+        FATS 2.0  2007-2015
+    </footer>
     
     <script src='http://libs.baidu.com/jquery/2.0.3/jquery.min.js'></script>
     <script src='http://cdn.bootcss.com/bootstrap/3.3.1/js/bootstrap.min.js'></script>  
     <script src='http://cdn.bootcss.com/datatables/1.9.4/jquery.dataTables.min.js'></script>
-    <script src='/dist/teaching.js'></script>
+    <script src='/dist/teachings.js'></script>
   </body>  
 </html>
