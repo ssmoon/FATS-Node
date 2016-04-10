@@ -6,7 +6,7 @@ var navigationT1Mng = {
   initEvent: function () {
     $.ajax({
       type: "POST",
-      url: "/teaching/navigator/context",
+      url: "/Teaching/Navigator/Context",
       data: '{ "teachingRoutineID": "' + $("#TchRoutineID").val() + '", "teachingNodeID": "' + $("#TchNodeID").val() + '"}',
       contentType: "application/json; charset=utf-8",
       dataType: "json",

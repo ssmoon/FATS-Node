@@ -1,0 +1,267 @@
+<div class="page-header page-header-fix">
+    <h3>科目填写指导</h3>
+</div>
+
+<div class="panel-group" id="subjectfiller" data-curr="1">
+    <div class="panel panel-info" data-idx="1">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#subjectfiller" href="#sf1">
+                    第一步：请填写一级科目名称
+                </a>
+            </h4>
+        </div>
+        <div id="sf1" class="list-group panel-collapse collapse in">
+            <table>
+                <tr>
+                    {{#each subjects}}
+                        <td>
+                            <div class="form-group">
+                                <label>科目 {{@index}}</label>
+                                <input type="text" class="form-control" data-correct="{{SubjectName}}" placeholder="输入科目名称">
+                            </div>
+                        </td>
+                    {{/each}}
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="panel panel-info" data-idx="2">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#subjectfiller" href="#sf2">
+                    第二步：请确定该一级科目下的子级科目
+                </a>
+            </h4>
+        </div>
+        <div id="sf2" class="list-group panel-collapse collapse">
+            <table>
+                <tr>
+                    <td colspan="@Model.Count">
+                        <div class="alert alert-info fade in">
+                            下级科目之间请用-连接，比如 abc-xyz
+                        </div>
+
+                    </td>
+                </tr>
+                <tr>
+                    {{#each subjects}}
+                        <td>
+                            <label>{{SubjectName}} :</label>
+                            <input type="text" class="form-control" data-correct="{{SubSubject}}" />
+                        </td>
+                    {{/each}}
+                </tr>
+            </table>
+        </div>
+    </div>    
+    <div class="panel panel-info" data-idx="3">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#subjectfiller" href="#sf3">
+                    第三步：请选择科目所属的类型
+                </a>
+            </h4>
+        </div>
+        <div id="sf3" class="list-group panel-collapse collapse">
+            <table>
+                <tr>
+                    {{#each subjects}}
+                        <td>
+                            <label>{{SubjectName}} :</label>
+                            <select class="form-control" data-correct="{{SubjectType}}">
+                                <option value="-1" selected="selected">(请选择)</option>
+                                <option value="资产">资产</option>
+                                <option value="负债">负债</option>
+                                <option value="所有者权益">所有者权益</option>
+                                <option value="收入">收入</option>
+                                <option value="成本或费用">成本或费用</option>
+                                <option value="资产负债共同类">资产负债共同类</option>
+                            </select>
+                        </td>
+                    {{/each}}
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="panel panel-info" data-idx="4">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#subjectfiller" href="#sf4">
+                    第四步：请确定科目余额增减变化的情况
+                </a>
+            </h4>
+        </div>
+        <div id="sf4" class="list-group panel-collapse collapse">
+            <table>
+                <tr>
+                    {{#each subjects}}
+                        <td>
+                           <label>{{SubjectName}} :</label>
+                            <select class="form-control" data-correct="{{ChangeOrient}}">
+                                <option value="-1" selected="selected">(请选择)</option>
+                                <option value="增加" selected="selected">增加</option>
+                                <option value="减少">减少</option>
+                            </select>
+                        </td>
+                    {{/each}}
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="panel panel-info" data-idx="5">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#subjectfiller" href="#sf5">
+                    第五步：请确定科目的借贷关系
+                </a>
+            </h4>
+        </div>
+        <div id="sf5" class="list-group panel-collapse collapse">
+            <table>
+                <tr>
+                   {{#each subjects}}
+                        <td>
+                            <label>{{SubjectName}} :</label>
+                            <select class="form-control" data-correct="{{SubjectOrient}}">
+                                <option value="-1" selected="selected">(请选择)</option>
+
+                                <option value="借" selected="selected">借方</option>
+                                <option value="贷">贷方</option>
+                            </select>
+                        </td>
+                    {{/each}}
+                </tr>
+            </table>
+        </div>
+    </div>    
+   
+    <div class="panel panel-info" data-idx="6">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#subjectfiller" href="#sf6">
+                    第六步：请填写科目的发生额
+                </a>
+            </h4>
+        </div>
+        <div id="sf6" class="list-group panel-collapse collapse">
+            <table>
+                <tr>
+                   {{#each subjects}}
+                        <td>
+                            <label>{{SubjectName}}</label>
+                            <input type="text" class="form-control" data-correct="{{Amount}}" />
+                        </td>
+                    {{/each}}
+                </tr>
+            </table>
+        </div>
+    </div>    
+    <div class="panel panel-info" data-idx="7">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#subjectfiller" href="#sf7">
+                    第七步：请选择下一步要为此科目登记的账簿类型
+                </a>
+            </h4>
+        </div>
+        <div id="sf7" class="list-group panel-collapse collapse">
+            <table>
+                <tr>
+                    {{#each subjects}}
+                        <td>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">{{SubjectOrient}} 方: </label>
+                                <div class="col-sm-10">
+                                    <p class="form-control-static">{{SubjectName}} - {{SubSubject}}</p>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">金 额:</label>
+                                <div class="col-sm-10">
+                                    <p class="form-control-static">{{Amount}}</p>
+                                </div>
+                            </div>
+                        </td>
+                    {{/each}}
+                </tr>
+                <tr>
+                    {{#each subjects}}
+                        <td>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">下一步:</label>
+                                <div class="col-sm-10">
+                                    <select name="NextLedger" class="form-control" data-correct="{{NextLedger}}">
+                                        <option value="-1" selected="selected">(请选择)</option>
+                                        <option value="分户账">分户账</option>
+                                        <option value="明细账">明细账</option>
+                                        <option value="现金收入日记账">现金收入日记账</option>
+                                        <option value="现金支出日记账">现金支出日记账</option>
+                                    </select>
+                                </div>
+            </div>
+            </td>
+                    {{/each}}
+                    </tr>
+
+                    </table>
+                </div>
+    </div>    
+        
+    
+    <div class="alert alert-warning fade in helparea" data-bag="@ViewBag.ResourceFile">
+        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+        <h4>学习指导</h4>
+        <div data-idx="1"></div>
+        <div data-idx="2"></div>
+        <div data-idx="3"></div>
+        <div data-idx="4"></div>
+        <div data-idx="5"></div>
+        <div data-idx="6"></div>
+        <div data-idx="7"></div>
+    </div>
+    <div class="alert alert-danger fade in errorarea">
+        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+        你填写的答案不正确，请重新思考，并在修改后重新点击“下一步”。<br />如果你不知道如何填写，请点击“提示”。
+    </div>
+    <nav id="subjectnav" role="navigation" class="navbar navbar-default">
+        <div class="collapse navbar-collapse leftarea">
+            <button class="btn btn-default navbar-btn btn-info" type="button" data-step="help">
+                <span class="glyphicon glyphicon-header"></span>提示
+            </button>
+        </div>
+        <div class="collapse navbar-collapse rightarea">
+            <button class="btn btn-default navbar-btn btn-info" type="button" data-step="next">
+                <span class="glyphicon glyphicon-arrow-right"></span>下一步
+            </button>
+        </div>
+        <div class="collapse navbar-collapse centerarea">   
+            <button class="btn btn-default navbar-btn btn-info" type="button" data-step="auto">
+                <span class="glyphicon glyphicon-th-list"></span>答案
+            </button>
+            <button class="btn btn-default navbar-btn btn-info" type="button" data-step="all">
+                <span class="glyphicon glyphicon-th-list"></span>全部
+            </button>
+        </div>
+
+        <div class="clearfix"></div>
+    </nav>       
+</div>
+
+<div id="fillerstepper">
+    <div class="panel panel-info">
+        <div class="panel-heading">科目操作向导</div>
+        <div class="list-group">
+            <a href="#" class="list-group-item active">
+                第一步: 填写一级科目名称
+            </a>
+            <a href="#" class="list-group-item">第二步：选择科目所属的类型</a>
+            <a href="#" class="list-group-item">第三步：确定余额增减的情况</a>
+            <a href="#" class="list-group-item">第四步：确定科目的借贷关系</a>
+            <a href="#" class="list-group-item">第五步：确定子级科目</a>
+            <a href="#" class="list-group-item">第六步：填写科目的发生额</a>
+            <a href="#" class="list-group-item">第七步：确定下一步的账簿类型</a>
+        </div>
+    </div>
+</div>

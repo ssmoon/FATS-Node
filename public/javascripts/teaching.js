@@ -33,12 +33,22 @@ $(document).ready(function () {
 
   if ($("#casearea").length > 0) {
     caseSelectionMgr.initCaseTable();
-  //  caseSelectionMgr.initStudiedTable();
+    //  caseSelectionMgr.initStudiedTable();
     caseSelectionMgr.initPageEvent();
   }
 
-  $("#fillerstepper").css("left", $(".maincont").offset().left);
-  $("#fillerstepper").show();
+  if ($("#fillerstepper").length > 0) {
+    $("#fillerstepper a").on("click", function () {
+      $("#fillerstepper a").removeClass("active");
+      $(this).addClass("active");
+      $("#subjectcontainer div[data-subject]").hide();
+      $("#subjectcontainer div[data-subject='" + $(this).attr("data-subject") + "']").show();
+
+    });
+    $("#fillerstepper").css("left", $(".maincont").offset().left);
+    $("#fillerstepper").show();
+    $("#fillerstepper a:first").click();
+  }
 })
 
 var teachingPackMng = {};

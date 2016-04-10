@@ -2,9 +2,9 @@
 
 module.exports = function(app) {
   app.use('/', require('./index'));
-  app.use('/user', require('./users'));
-  app.use('/teaching/navigator', require('./teaching/navigator'));
-  app.use('/teaching/specialnode', require('./teaching/specialnode'));
-  app.use('/teaching/registerbook', require('./teaching/registerbook'));
-  app.use('/teaching/commonnode', require('./teaching/commonnode'));
+  app.use('/User', require('./users'));
+  app.use('/Teaching/Navigator', require('./teaching/navigator'));
+  app.use('/Teaching/Specialnode', require('./teaching/specialnode'));
+  app.use('/Teaching/Registerbook', require('./teaching/registerbook'));
+  app.use('/Teaching/Commonnode', require('./teaching/commonnode'));
 }

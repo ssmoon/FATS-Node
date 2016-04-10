@@ -18,18 +18,7 @@ class TeachingCache {
       routines.forEach(routine => {
         self.routineHash[routine.Row_ID] = routine;
       });
-      let groups = yield dbContext.RoutineGroup.findAll();
-      groups.forEach(group => {
-        if (self.routineHash[group.RoutineID]) {
-          if (!self.routineHash[group.RoutineID].groupHash) {
-            self.routineHash[group.RoutineID].groupHash = {};
-            self.routineHash[group.RoutineID].groupList = [];
-          }
-          self.routineHash[group.RoutineID].groupHash[group.Row_ID] = group;
-          self.routineHash[group.RoutineID].groupList.push(group);
-        }
-      })
-      
+            
       let nodes = yield dbContext.TeachingNode.findAll();
       nodes.forEach(node => {
         //purge overflowed junk data
@@ -41,6 +30,27 @@ class TeachingCache {
           self.routineHash[node.RoutineID].nodeHash[node.Row_ID] = node;        
           self.routineHash[node.RoutineID].nodeList.push(node.Row_ID);
           self.allNodeHash[node.Row_ID] = node;
+        }
+      })
+      
+      let groups = yield dbContext.RoutineGroup.findAll({});
+      groups.forEach(group => {
+        if (self.routineHash[group.TchRoutineID]) {
+          if (!self.routineHash[group.TchRoutineID].groupHash) {
+            self.routineHash[group.TchRoutineID].groupHash = {};
+            self.routineHash[group.TchRoutineID].groupList = [];
+          }
+          
+          let nodeList = self.routineHash[group.TchRoutineID];
+          for (let i = 0; i <= nodeList.length - 1; i ++) {
+            if (nodeList[i].GroupIdx === group.GroupIdx) {
+              group.FirstNode = nodeList[i];
+              break;
+            }
+          }
+          
+          self.routineHash[group.TchRoutineID].groupHash[group.Row_ID] = group;
+          self.routineHash[group.TchRoutineID].groupList.push(group);
         }
       })
     });    
@@ -56,8 +66,12 @@ class TeachingCache {
   
   getNodeGroup(tchNodeID) {
     let tchNode = this.allNodeHash[tchNodeID];
-    let groupIdx = templateCache.getTemplateNode(tchNode.TmpNodeID);
-    return self.routinehash[tchNode.RoutineID].groupList[groupIdx];
+    let groupIdx = templateCache.getTemplateNode(tchNode.TmpNodeID).GroupIdx;
+    return this.routineHash[tchNode.RoutineID].groupList[groupIdx];
+  }
+  
+  getAllGroup(tchRoutineID) {    
+    return this.routineHash[tchRoutineID].groupList;
   }
   
   getFirstNode(tchRoutineID) {

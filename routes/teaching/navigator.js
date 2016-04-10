@@ -11,13 +11,13 @@ const userMng = require('../../app/logic/user');
 const constDefine = require('../../app/const');
 const webUtil = require('../../app/webutil');
 
-router.get('/select', function(req, res, next) {
+router.get('/Select', function(req, res, next) {
   dbContext.TemplateRoutine.findAll({ where: { RoutineType: constDefine.RoutineType_Teaching1 } }).then(function(routines) {
-    res.render('selectCase', { routines: routines });
+    res.render('SelectCase', { routines: routines });
   })
 });
 
-router.post('/context', function(req, res, next) {
+router.post('/Context', function(req, res, next) {
   let tchRoutineID = req.body.tchRoutineID;
   let tchNodeID = req.body.tchNodeID;
  
@@ -57,14 +57,15 @@ router.post('/context', function(req, res, next) {
   res.json(clientContext);
 });
 
-router.post('/start', function(req, res, next) {
+router.post('/Start', function(req, res, next) {
   let tchRoutineID = req.body.tchRoutineID;
 //  let tchRoutine = teachingCache.getRoutine(tchRoutineID);
   let firstNode = teachingCache.getFirstNode(tchRoutineID);
-  res.json({ urlSegment: `${firstNode.NodeType}/${firstNode.NodeTag}/${firstNode.Row_ID}` });  
+  let relTmpNode = templateCache.getTemplateNode(firstNode.TmpNodeID);
+  res.json(`${relTmpNode.NodeType}/${relTmpNode.Tag}/${firstNode.Row_ID}`);  
 });
 
-router.post('/allroutine', function(req, res, next) {
+router.post('/AllRoutine', function(req, res, next) {
   let tmpRoutineID = req.body.tmpRoutineID;
   if (!tmpRoutineID) {
     res.json(webUtil.wrapClientGridData([]));

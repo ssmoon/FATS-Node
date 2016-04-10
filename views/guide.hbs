@@ -1,0 +1,37 @@
+<div class="page-header page-header-fix">
+    <h3>案例流程概览<small>{{tchRoutine.CaseName}}</small></h3>
+</div>
+
+<div id="routineoverview">
+    <input id="CurrGroup" value="{{group.GroupIdx}}" type="hidden" />
+    <input type="hidden" id="TchRoutineID" value="{{tchRoutine.Row_ID}}" />
+    <input type="hidden" id="TchNodeID" value="{{tchNode.Row_ID}}" />
+    <div class="mainprocess">
+        {{#each groups}}
+          <div class="group" data-groupidx="@tchNode.RelTmpNode.GroupIdx" data-node-id="@tchNode.Row_ID">
+              <div class="groupidx">步骤 {{GroupIdx}}</div>
+              <div class="grouptitle">{{GroupDesc}}</div>
+          </div>    
+          {{#if (@index < groups.length - 1)}} 
+            <div class="downconnector"></div>
+          {{/if}}
+        {{/each}}
+    </div>
+    <div class="arrowcontainer">
+    </div>
+    <div class="currphase panel panel-success">
+        <div class="panel-heading">步骤介绍</div>
+
+        <p>
+            @ViewBag.RoutineIntro
+        </p>
+        <div class="panel-body">
+
+            <div class="actionbar">
+                <button type="button" data-act="go" class="btn btn-primary btn-lg">开 始 学 习</button>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+@{  Html.RenderPartial("Teaching1Navigator"); }

@@ -26,7 +26,7 @@
       "bLengthChange": false,
       "bPaginate": false,
       "bProcessing": true,
-      "sAjaxSource": "/teaching/navigator/allroutine",
+      "sAjaxSource": "/Teaching/Navigator/AllRoutine",
       "fnServerData": function (sSource, aoData, fnCallback) {
         aoData = caseSelectionMgr.tableData,
         $.ajax({
@@ -52,13 +52,13 @@
           var routineID = caseSelectionMgr.caseTable.fnGetData(aPos).Row_ID;
           $.ajax({
             type: "POST",
-            url: '/teaching/navigator/start',
-            data: '{"teachingRoutineID": "' + routineID + '" }',
+            url: '/Teaching/Navigator/Start',
+            data: '{"tchRoutineID": "' + routineID + '" }',
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (result) {
               $('#pop_LoadingCase .modal-body').html("系统已为你准备好了案例，跳转页面中...");
-              window.location = '/Teachings/' + result;
+              window.location = '/Teaching/' + result;
             },
             error: function (e) {
               HidePopLoading();
@@ -83,7 +83,7 @@
       "bLengthChange": false,
       "bPaginate": false,
       "bProcessing": true,
-      "sAjaxSource": "/teaching/navigator/allroutine",
+      "sAjaxSource": "/Teaching/Navigator/Allroutine",
       "fnServerData": function (sSource, aoData, fnCallback) {
         $.ajax({
           "dataType": 'json',

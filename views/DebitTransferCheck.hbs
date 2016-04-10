@@ -1,0 +1,14 @@
+<div id="maincontainer">
+    <div class="page-header page-header-fix">
+        <h3>{{nodeName}}<small>{{RoutineName}}</small></h3>
+    </div>
+    @{  Html.RenderPartial("CaseHeaderDesc", @ViewData["CaseDesc"]); }
+    @Html.HiddenFor(info => info.TchRoutineID)
+    <input type="hidden" id="TchNodeID" value="@ViewBag.TchNodeID" />
+
+    @{ Html.RenderPartial("TransferCheck", FATS.BusinessObject.Converters.DebitTransferCheckConverter.S1_ToView_TransferCheck(Model)); }
+    @{ Html.RenderPartial("IncomeBill", FATS.BusinessObject.Converters.DebitTransferCheckConverter.S1_ToView_IncomeBill(Model)); }
+    @{ Html.RenderAction("SubjectFiller", "CommonNode", new { rid = Model.TchRoutineID, nid = ViewBag.TchNodeID }); }
+</div>
+
+@{  Html.RenderPartial("Teaching1Navigator");}
