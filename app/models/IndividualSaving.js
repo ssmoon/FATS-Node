@@ -5,7 +5,8 @@ module.exports = function(sequelize, DataTypes) {
     Row_ID: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true, 
+      autoIncrement: true
     },
     DepositTime: {
       type: DataTypes.DATE,
@@ -44,11 +45,11 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     InterestAmount: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.DECIMAL(12, 2),
       allowNull: false
     },
     EntryAmount: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.DECIMAL(12, 2),
       allowNull: false
     },
     ClientAcc: {

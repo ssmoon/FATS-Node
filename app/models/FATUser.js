@@ -5,7 +5,8 @@ module.exports = function(sequelize, DataTypes) {
     Row_ID: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true, 
+      autoIncrement: true
     },
     UserName: {
       type: DataTypes.STRING,
@@ -29,7 +30,8 @@ module.exports = function(sequelize, DataTypes) {
     },
     CreatedDate: {
       type: DataTypes.DATE,
-      allowNull: false
+      allowNull: false,
+      defaultValue: sequelize.NOW
     },
     Password: {
       type: DataTypes.STRING,

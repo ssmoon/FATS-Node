@@ -5,7 +5,8 @@ module.exports = function(sequelize, DataTypes) {
     Row_ID: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true, 
+      autoIncrement: true
     },
     TmpRoutineID: {
       type: DataTypes.STRING,
@@ -17,7 +18,8 @@ module.exports = function(sequelize, DataTypes) {
     },
     CurrStatus: {
       type: DataTypes.INTEGER(6),
-      allowNull: false
+      allowNull: false,
+      defaultValue: 1
     }
   }, {
     timestamps: false,

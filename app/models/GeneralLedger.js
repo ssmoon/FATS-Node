@@ -5,10 +5,11 @@ module.exports = function(sequelize, DataTypes) {
     Row_ID: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true, 
+      autoIncrement: true
     },
     BalanceSum: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.DECIMAL(12, 2),
       allowNull: false
     },
     BalanceOrient: {
@@ -20,11 +21,11 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     DebitSum: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.DECIMAL(12, 2),
       allowNull: false
     },
     CreditSum: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.DECIMAL(12, 2),
       allowNull: false
     },
     Abstract: {
@@ -48,7 +49,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     FinalSum: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.DECIMAL(12, 2),
       allowNull: false
     },
     RoutineDesc: {

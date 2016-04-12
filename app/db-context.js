@@ -1,22 +1,29 @@
 'use strict';
 
 const Sequelize = require('sequelize');
+const nconf = require('nconf');
 
-const sequelize = new Sequelize('FATS', 'root', 'root', {
-  host: '192.168.1.181',
+nconf.argv().file({ file: 'config/config.json' });
+const sequelize = new Sequelize(nconf.get('mysql:db'), nconf.get('mysql:uid'), nconf.get('mysql:pwd'), {
+  host: nconf.get('mysql:host'),
   dialect: 'mysql',
   pool: {
     max: 5,
     min: 0,
     idle: 10000
+  },
+  define: {   
+    charset: 'utf8',
+    collate: 'utf8_general_ci'
   }
 });
+
 
 module.exports = {
   Container: sequelize,
   FatUser: sequelize.import('./models/FATUser'),
   FATUserGroup: sequelize.import('./models/FATUserGroup'),
-  activationCode: sequelize.import('./models/ActivationCode'),
+  ActivationCode: sequelize.import('./models/ActivationCode'),
   TemplateRoutine: sequelize.import('./models/TemplateRoutine'),
   TemplateNode: sequelize.import('./models/TemplateNode'),
   StudentActivity: sequelize.import('./models/StudentActivity'),

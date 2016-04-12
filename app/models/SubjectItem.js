@@ -5,7 +5,8 @@ module.exports = function(sequelize, DataTypes) {
     Row_ID: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true, 
+      autoIncrement: true
     },
     SubjectName: {
       type: DataTypes.STRING,
@@ -28,7 +29,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     Amount: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.DECIMAL(12, 2),
       allowNull: false
     },
     NextLedger: {
