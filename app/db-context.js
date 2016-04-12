@@ -18,6 +18,7 @@ const sequelize = new Sequelize(nconf.get('mysql:db'), nconf.get('mysql:uid'), n
   }
 });
 
+//sequelize.sync();
 
 module.exports = {
   Container: sequelize,
@@ -37,9 +38,15 @@ module.exports = {
   CollectAccept: sequelize.import('./models/CollectAccept'),  
   EntrustBankPayment: sequelize.import('./models/EntrustBankPayment'),
   EntrustCorpPayment: sequelize.import('./models/EntrustCorpPayment'),
-  TransferCheck: sequelize.import('./models/TransferCheck'),
-  IndividualSaving: sequelize.import('./models/IndividualSaving'),
+  TransferCheck: sequelize.import('./models/TransferCheck'),  
   MoneyRemittance: sequelize.import('./models/MoneyRemittance'),
+  
+  IndividualSaving: sequelize.import('./models/IndividualSaving'),
+  UnitSaving: sequelize.import('./models/UnitSaving'),
+  
+  Loan: sequelize.import('./models/Loan'),
+  Discounting: sequelize.import('./models/Discounting'), 
+  
   
   GeneralLedger: sequelize.import('./models/GeneralLedger'),  
   OuterSubject: sequelize.import('./models/OuterSubject'),
