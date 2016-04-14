@@ -4,7 +4,7 @@ module.exports = function(app) {
   app.use('/', require('./index'));
   app.use('/User', require('./users'));
   app.use('/Teaching/Navigator', require('./teaching/navigator'));
-  app.use('/Teaching/Specialnode', require('./teaching/specialnode'));
-  app.use('/Teaching/Registerbook', require('./teaching/registerbook'));
-  app.use('/Teaching/Commonnode', require('./teaching/commonnode'));
+  app.use('/Teaching/SpecialNode', require('./teaching/specialnode'));
+  app.use('/Teaching/RegisterBook', require('./teaching/registerbook'));
+  app.use('/Teaching/CommonNode', require('./teaching/commonnode'));
 }

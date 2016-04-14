@@ -27,12 +27,13 @@ var routeDefine = require('./routes/routes');
 routeDefine(app);
   
 var expressHbs  = require('express-handlebars');
-var hbsHelper = require('./app/ui-helper/format-helper');
-hbsHelper(expressHbs);
+var hbsConfig = require('./app/hbsConfig')
+
+var hbs = hbsConfig(expressHbs);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.engine('hbs', expressHbs({ extname:'hbs', defaultLayout:'_layout.hbs' }));
+app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 
 

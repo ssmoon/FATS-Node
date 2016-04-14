@@ -3,6 +3,14 @@ var navigationT1Mng = {
   checkStatus: 0,
   navigationContext: null,
 
+  goNextStep: function() {
+    $('#pop_WaitingDiag .modal-body').html("正在转到下一训练环节..");
+    $('#pop_WaitingDiag').modal('show');
+    setTimeout(function () {
+      window.location = "/Teaching/" + navigationT1Mng.navigationContext.NextTchNodeType + "/" + navigationT1Mng.navigationContext.NextTchNodeTag + "/" + navigationT1Mng.navigationContext.NextTchNodeID;
+    }, 500);
+  },
+
   initEvent: function () {
     $.ajax({
       type: "POST",
@@ -10,7 +18,7 @@ var navigationT1Mng = {
       data: '{ "teachingRoutineID": "' + $("#TchRoutineID").val() + '", "teachingNodeID": "' + $("#TchNodeID").val() + '"}',
       contentType: "application/json; charset=utf-8",
       dataType: "json",
-      success: function (result) {   
+      success: function (result) {
         navigationT1Mng.navigationContext = result;
 
         $("#navbar button[data-step=next]").bind("click", function () {
@@ -39,11 +47,7 @@ var navigationT1Mng = {
               }, 1000);
             }
             else {
-              $('#pop_WaitingDiag .modal-body').html("正在转到下一训练环节..");
-              $('#pop_WaitingDiag').modal('show');
-              setTimeout(function () {
-                window.location = "/Teachings/" + navigationT1Mng.navigationContext.NextTchNodeType + "/" + navigationT1Mng.navigationContext.NextTchNodeTag + "/" + navigationT1Mng.navigationContext.NextTchNodeID;
-              }, 500);
+              navigationT1Mng.goNextStep();
             }
 
           }
@@ -134,8 +138,10 @@ var navigationT1Mng = {
       });
       $("a[data-step=check]").click();
     });
+  },
+  error: function(e) {
+    debugger;
   }
-
 }
 
 

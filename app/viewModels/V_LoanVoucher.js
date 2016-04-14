@@ -1,0 +1,15 @@
+﻿module.exports = {
+    ClientName: '',
+    BankName: '',
+    MoneyAmount: '',
+    TchRoutineID: '',
+    TchRoutineTag: '',
+    Purpose: '',
+    LoanDate: '',
+    RepayDate: '',
+    LoanAcc: '',
+    RepayAcc: '',
+    LoanType: '',
+    InterestRate: '',
+    InterestAmount: '',
+}

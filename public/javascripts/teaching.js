@@ -21,7 +21,7 @@ $(document).ready(function () {
       window.location = "/Teachings/CommonNode/Guide/" + $(this).attr("data-node-id");
     })
     $("#routineoverview").on("click", "button[data-act=go]", function () {
-      $("#navbar button[data-step=next]").click();
+      navigationT1Mng.goNextStep();
     })
     if ($("#CurrGroup").length > 0)
       navigationT1Mng.checkStatus = 1;

@@ -18,8 +18,8 @@ router.get('/Select', function(req, res, next) {
 });
 
 router.post('/Context', function(req, res, next) {
-  let tchRoutineID = req.body.tchRoutineID;
-  let tchNodeID = req.body.tchNodeID;
+  let tchRoutineID = req.body.teachingRoutineID;
+  let tchNodeID = req.body.teachingNodeID;
  
  /* 
   let tchRoutine = teachingCache.getRoutine(tchRoutineID);
@@ -32,27 +32,31 @@ router.post('/Context', function(req, res, next) {
   clientContext.tchRoutineID = tchRoutineID;
   
   let prevNode = teachingCache.getPrevNode(tchRoutineID, tchNodeID);
-  if (prevNode === null) {
-    clientContext.prevTchNodeID = -1;
-    clientContext.prevTchNodeTag = '';
-    clientContext.prevTchNodeType = '';
+  if (!prevNode) {
+    clientContext.PrevTchNodeID = -1;
+    clientContext.PrevTchNodeTag = '';
+    clientContext.PrevTchNodeType = '';
   }
   else {
-    clientContext.prevTchNodeID = prevNode.Row_ID;
-    clientContext.prevTchNodeTag = prevNode.NodeTag;
-    clientContext.prevTchNodeType = prevNode.NodeType;
+    let templateNode = templateCache.getTemplateNode(prevNode.TmpNodeID);  
+      
+    clientContext.PrevTchNodeID = prevNode.Row_ID;
+    clientContext.PrevTchNodeTag = templateNode.Tag;
+    clientContext.PrevTchNodeType = templateNode.NodeType;
   }
   
   let nextNode = teachingCache.getNextNode(tchRoutineID, tchNodeID);
-  if (nextNode === null) {
-    clientContext.nextTchNodeID = -1;
-    clientContext.nextTchNodeTag = '';
-    clientContext.nextTchNodeType = '';
+  if (!nextNode) {
+    clientContext.NextTchNodeID = -1;
+    clientContext.NextTchNodeTag = '';
+    clientContext.NextTchNodeType = '';
   }
   else {
-    clientContext.nextTchNodeID = nextNode.Row_ID;
-    clientContext.nextTchNodeTag = nextNode.NodeTag;
-    clientContext.nextTchNodeType = nextNode.NodeType;
+    let templateNode = templateCache.getTemplateNode(nextNode.TmpNodeID);  
+      
+    clientContext.NextTchNodeID = nextNode.Row_ID;
+    clientContext.NextTchNodeTag = templateNode.Tag;
+    clientContext.NextTchNodeType = templateNode.NodeType;
   }
   res.json(clientContext);
 });

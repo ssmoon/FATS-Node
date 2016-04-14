@@ -8,7 +8,14 @@ const importUtil = require('../app/import');
 
 router.get('/', function(req, res, next) {
     userMng.login(req.session, 'vexy', '111111', function(err) {
-      res.render('index');
+      res.render('index', {
+            showTitle: true,
+
+            // Override `foo` helper only for this rendering.
+            helpers: {
+                foo: function () { return 'foo.'; }
+            }
+        });
     });
 });
 

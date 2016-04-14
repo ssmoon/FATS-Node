@@ -14,7 +14,7 @@ router.get('/:node/:id', function(req, res) {
     where: { TchRoutineID: wrapper.tchNode.RoutineID }
   }).then(function(items) {
     wrapper.itemList = items;
-    res.render(node, wrapper);  
+    res.render('tspecial/' + node + '_' + wrapper.nodeIndex, wrapper);  
   })
 });
 
@@ -30,7 +30,8 @@ function buildCommonNodeReturnWrapper(tchNodeID) {
     routineName: tmpRoutine.RoutineName,
     nodeName: tmpNode.NodeName,
     groupText: group.GroupText,
-    tchNode: tchNode
+    tchNode: tchNode,
+    nodeIndex: tmpNode.NodeIndex
   };
 }
 

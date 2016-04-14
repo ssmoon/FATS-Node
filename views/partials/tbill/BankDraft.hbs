@@ -1,0 +1,53 @@
+
+<table class="table table-bordered table-condensed" cellspacing="8" style="margin: 20px 0px;">
+    <tr>
+        <td colspan="6">
+            <div class="billtitle"><span class="bankname">{{ PayeeBank }}</span>银行汇票</div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="6">
+            {{ formatDate1 DraftDate }}
+        </td>
+    </tr>
+    <tr>
+        <td class="titlecol">收款人</td>
+        <td colspan="2">{{ RemitterName }}</td>        
+        <td class="titlecol">账号</td>        
+        <td>{{ RemitterAcc }}</td>
+    </tr>    
+    <tr>
+        <td colspan="1" class="titlecol">
+            出票金额           
+        </td>
+        <td colspan="5">
+            {{ formatMoney MoneyAmount }}   
+        </td>
+    </tr>
+    <tr>
+        <td colspan="1" class="titlecol">
+            实际结算金额            
+        </td>
+        <td colspan="5">
+           {{ formatMoney CloseAmount }}   
+        </td>
+    </tr>
+    <tr>
+        <td class="titlecol">申请人</td>
+        <td colspan="2">{{ PayeeName }}</td>
+        <td class="titlecol">账号</td>
+        <td colspan="2">{{ PayeeAcc }}</td>
+    </tr>    
+    <tr>
+        <td class="titlecol">出票行</td>
+        <td>{{ PayeeBank }}</td>
+        <td class="titlecol">行号</td>
+        <td>0001</td>
+        <td colspan="2">&nbsp;</td>
+    </tr>    
+    <tr>    
+        <td class="titlecol">备注</td>
+        <td colspan="2">{{ Purpose }}</td>
+        <td colspan="3">&nbsp;</td>
+    </tr>
+</table>

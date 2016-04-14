@@ -3,7 +3,7 @@
 const monent = require('moment');
 
 module.exports = function (exphbs) {
-  exphbs.create({
+  exphbs = exphbs.create({
     // Specify helpers which are only registered on this instance.
     helpers: {
       formatDate1: function (date) {
@@ -20,8 +20,11 @@ module.exports = function (exphbs) {
       },
 
       formatMoney: function (money) {
-        return money.toFixed(2);
-      }
+        return 'money.toFixed(2)';
+      },
+      
+       foo: function () { return 'FOO!'; },
+        bar: function () { return 'BAR!'; }
     }
   });
 }

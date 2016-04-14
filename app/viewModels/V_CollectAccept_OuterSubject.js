@@ -1,0 +1,17 @@
+﻿module.exports = {
+    OuterSubject: '',
+    BankName: '',
+    BillTitle: '',
+    MoneyAmount: '',
+    FinalAmount: '',
+    RemitterName: '',
+    RemitterAcc: '',
+    RemitterBank: '',
+    PayeeName: '',
+    PayeeAcc: '',
+    PayeeBank: '',
+    CollectDate: '',
+    AcceptDate: '',
+    OpResult: '',
+    TimeMark: '',
+}

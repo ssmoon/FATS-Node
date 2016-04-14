@@ -81,7 +81,7 @@ class TeachingCache {
   
   getNextNode(tchRoutineID, tchNodeID) {
     let nodeList = this.routineHash[tchRoutineID].nodeList;
-    let currNodeIdx = nodeList.indexOf(tchNodeID);
+    let currNodeIdx = nodeList.indexOf(Number(tchNodeID));
     if (currNodeIdx === nodeList.length - 1) {
       return null;
     }
@@ -90,7 +90,7 @@ class TeachingCache {
   
   getPrevNode(tchRoutineID, tchNodeID) {
     let nodeList = this.routineHash[tchRoutineID].nodeList;
-    let currNodeIdx = nodeList.indexOf(tchNodeID);
+    let currNodeIdx = nodeList.indexOf(Number(tchNodeID));
     if (currNodeIdx === 0) {
       return null;
     }

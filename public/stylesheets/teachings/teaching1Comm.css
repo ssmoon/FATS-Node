@@ -1,38 +1,40 @@
-﻿body { 
-    padding-bottom: 70px; 
+﻿body {
+    padding-bottom: 70px;
 }
 
-#navbar { 
+.center { text-align: center; }
+
+#navbar {
     width: 1130px; margin: 0px auto;
 }
 
-#navbar .leftarea { 
+#navbar .leftarea {
     float: left; width: 200px;
     padding-left: 20px;
 }
 
-#navbar .rightarea { 
+#navbar .rightarea {
     float: right; width: 200px;
     text-align:right; padding-right: 20px;
 }
 
-#navbar .centerarea { 
+#navbar .centerarea {
     width: 300px; margin-left: auto; margin-right: auto;
     text-align: center;
 }
 
-#navbar .centerarea button:first-child { 
+#navbar .centerarea button:first-child {
     margin-right: 30px;
 }
 
 #navbar .glyphicon { margin-right: 4px; }
 
-.navbar-default { 
+.navbar-default {
     background-color: #eeeeee; border: 1px solid #cccccc; border-bottom: 0px none;
 }
 
 #routineoverview .mainprocess { float: left; width: 300px; margin-left: 20px; }
-#routineoverview .arrowcontainer { float: left; width: 220px; min-height: 600px; background: url(../../images/arrow_toright.png) no-repeat 12px -45px; } 
+#routineoverview .arrowcontainer { float: left; width: 220px; min-height: 600px; background: url(/images/arrow_toright.png) no-repeat 12px -45px; }
 #routineoverview .currphase { float: left; width: 400px; min-height: 200px; position: relative; }
 #routineoverview .currphase p { font-size: 18px; color: #666666; margin: 20px 30px; }
 
@@ -41,7 +43,7 @@
 #routineoverview .mainprocess .currgroup { background-color: #DFF0D8; border-color: #D6E9C6; color: #3C763D; }
 #routineoverview .mainprocess .groupidx { font-size: 16px; }
 #routineoverview .mainprocess .grouptitle { font-size: 18px; }
-#routineoverview .mainprocess .downconnector { background: url(../../images/arrow_tobottom.png) no-repeat 105px 2px; height: 90px; } 
+#routineoverview .mainprocess .downconnector { background: url(/images/arrow_tobottom.png) no-repeat 105px 2px; height: 90px; }
 
 #maincontainer { margin-left: 300px;  min-height: 600px; }
 #maincontainer .casedesc { font-size: 15px; line-height: 25px; }
@@ -54,7 +56,7 @@
 #maincontainer .savingtype label { font-weight: normal; margin: 0px 15px 0px 3px;  }
 .fullcontainer { margin-left: 0px !important; }
 #fillerstepper { position: fixed; top: 100px; left: 0px; display: none; width: 260px; height: 400px; }
-#fillerstepper .glyphicon { float: right; font-weight: 600; } 
+#fillerstepper .glyphicon { float: right; font-weight: 600; }
 #fillerstepper .glyphicon-question-sign { color: red; }
 #fillerstepper .glyphicon-ok { color: green; }
 

@@ -1,3 +1,4 @@
+ {{ log groups }}
 <div class="page-header page-header-fix">
     <h3>案例流程概览<small>{{tchRoutine.CaseName}}</small></h3>
 </div>
@@ -7,12 +8,13 @@
     <input type="hidden" id="TchRoutineID" value="{{tchRoutine.Row_ID}}" />
     <input type="hidden" id="TchNodeID" value="{{tchNode.Row_ID}}" />
     <div class="mainprocess">
+       
         {{#each groups}}
           <div class="group" data-groupidx="@tchNode.RelTmpNode.GroupIdx" data-node-id="@tchNode.Row_ID">
-              <div class="groupidx">步骤 {{GroupIdx}}</div>
-              <div class="grouptitle">{{GroupDesc}}</div>
+              
+              <div class="grouptitle">{{RoutineDesc}}</div>
           </div>    
-          {{#if (@index < groups.length - 1)}} 
+          {{#if (inverse @last) }} 
             <div class="downconnector"></div>
           {{/if}}
         {{/each}}
@@ -21,9 +23,8 @@
     </div>
     <div class="currphase panel panel-success">
         <div class="panel-heading">步骤介绍</div>
-
         <p>
-            @ViewBag.RoutineIntro
+            {{ group.RoutineIntro }}
         </p>
         <div class="panel-body">
 
@@ -34,4 +35,5 @@
     </div>
     <div class="clearfix"></div>
 </div>
-@{  Html.RenderPartial("Teaching1Navigator"); }
+
+{{> tsupport/Teaching1Navigator }}
