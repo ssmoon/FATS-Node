@@ -1,0 +1,26 @@
+﻿
+<table class="table table-bordered table-condensed" cellspacing="8" style="margin: 20px 0px;">
+    <tr>
+        <td colspan="6">
+            <div class="billtitle"><span class="bankname">{{ BankName }}</span>单位定期存款支取凭证</div>
+        </td>
+    </tr>
+    <tr>
+        <td class="titlecol">存款人姓名</td>
+        <td>{{ ClientName }}</td>
+        <td class="titlecol">活期存款账号</td>
+        <td>{{ ClientAcc }}</td>
+    </tr>
+    <tr>
+        <td class="titlecol">定期存款账号</td>
+        <td>001200101000116</td>
+        <td class="titlecol">开户行</td>
+        <td>{{ BankName }}</td>
+    </tr>
+    <tr>
+        <td class="titlecol">存款本金</td>
+        <td>{{ formatMoney EntryAmount }}</td>
+        <td class="titlecol">利息</td>
+        <td>{{ formatMoney InterestAmount }}</td>
+    </tr>
+</table>

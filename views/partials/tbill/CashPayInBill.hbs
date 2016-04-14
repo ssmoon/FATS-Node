@@ -1,0 +1,34 @@
+﻿
+<table class="table table-bordered table-condensed" cellspacing="8" style="margin: 20px 0px;">
+    <tr>
+        <td colspan="6">
+            <div class="billtitle"><span class="bankname">{{ BankName }}</span>还贷凭证</div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="6">
+            {{ formatDate1 TimeMark }}
+        </td>
+    </tr>
+    <tr>
+        <td class="titlecol">收款人户名</td>
+        <td colspan="3">{{ ClientName }}</td>
+    </tr>
+    <tr>
+        <td class="titlecol">收款人账号</td>
+        <td>{{ ClientAcc }}</td>
+        <td class="titlecol">收款人开户行</td>
+        <td>{{ BankName }}</td>
+    </tr>
+    <tr>
+        <td class="titlecol">缴款人</td>
+        <td>{{ PayInMan }}</td>
+        <td class="titlecol">款项来源</td>
+        <td>{{ MoneySource }}</td>
+    </tr>
+    <tr>
+        <td class="titlecol">金额</td>
+        <td colspan="3">{{ formatMoney EntryAmount }}</td>
+    </tr>
+
+</table>

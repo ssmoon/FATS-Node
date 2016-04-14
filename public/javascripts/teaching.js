@@ -9,6 +9,7 @@ require("script!./shared/datatables.js");
 
 var navigationT1Mng = require('./teachings/teaching1Comm');
 var caseSelectionMgr = require('./teachings/selectT1Case');
+var subjectFiller = require('./teachings/subjectFiller')
 
 $(document).ready(function () {
   if ($("#routineoverview").length > 0) {
@@ -48,6 +49,9 @@ $(document).ready(function () {
     $("#fillerstepper").css("left", $(".maincont").offset().left);
     $("#fillerstepper").show();
     $("#fillerstepper a:first").click();
+
+    subjectFiller.initCtrls();
+    subjectFiller.initEvent();
   }
 })
 

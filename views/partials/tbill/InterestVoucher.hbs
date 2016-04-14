@@ -1,0 +1,36 @@
+﻿
+
+<table class="table table-bordered table-condensed" cellspacing="8" style="margin: 20px 0px;">
+    <tr>
+        <td colspan="7">
+            <div class="billtitle"><span class="bankname">{{ BankName }}</span>利息凭证</div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="7">
+            {{ formatDate1 InterestTime }}
+        </td>
+    </tr>    
+    <tr>
+        <td colspan="2" class="titlecol">
+            账号
+        </td>
+        <td colspan="2">
+            摘要
+        </td>
+        <td colspan="2">
+            金额
+        </td>
+    </tr>    
+    <tr>
+        <td colspan="2" class="titlecol">
+            {{ ClientAcc }}
+        </td>
+        <td colspan="2">
+            {{ Abstract }}
+        </td>
+        <td colspan="2">
+            {{ formatMoney InterestAmount }}
+        </td>
+    </tr>    
+</table>

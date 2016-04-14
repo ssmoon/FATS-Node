@@ -1,0 +1,60 @@
+﻿
+<table class="table table-bordered table-condensed" cellspacing="8" style="margin: 20px 0px;">
+    <tr>
+        <td colspan="7">
+            <div class="billtitle"><span class="bankname">{{ BankName }}</span>储蓄取款凭条</div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="7">
+            {{ formatDate1 WithdrawTime  }}
+        </td>
+    </tr>
+    <tr>
+        <td class="verticalcol" rowspan="4">储户填写</td>
+        <td colspan="6" class="savingtype">
+            <input type="radio" disabled="disabled" @(Model.WithdrawType == "活期" ? "checked='checked'" : "") /><label>活期</label>
+            <input type="radio" disabled="disabled" /><label>储蓄卡</label>
+            <input type="radio" disabled="disabled" @(Model.WithdrawType == "整整" ? "checked='checked'" : "") /><label>整整</label>
+            <input type="radio" disabled="disabled" @(Model.WithdrawType == "零整" ? "checked='checked'" : "") /><label>零整</label>
+            <input type="radio" disabled="disabled" @(Model.WithdrawType == "整零" ? "checked='checked'" : "") " /><label>整零</label>
+            <input type="radio" disabled="disabled" /><label>定活</label>
+            <input type="radio" disabled="disabled" /><label>教育</label>
+            <input type="radio" disabled="disabled" @(Model.WithdrawType == "存本" ? "checked='checked'" : "") /><label>存本</label>
+            <input type="radio" disabled="disabled" /><label>其它</label>
+        </td>       
+    </tr>
+    <tr>
+        <td colspan="2" class="titlecol">
+            户名: {{ WithdrawClient }}
+        </td>
+        <td colspan="2">
+            身份证件名称: 身份证
+        </td>
+        <td colspan="2">
+            证件号码: 10224197907077782
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" class="titlecol">
+            代办人姓名: 
+        </td>
+        <td colspan="2">
+            身份证件名称: 
+        </td>
+        <td colspan="2">
+            证件号码: 
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" class="titlecol">
+            币种: 人民币
+        </td>
+        <td colspan="2">
+            &nbsp;
+        </td>
+        <td colspan="2">
+            金额: {{ formatMoney EntryAmount }}
+        </td>
+    </tr>  
+</table>

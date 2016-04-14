@@ -1,0 +1,37 @@
+﻿
+<table class="table table-bordered table-condensed" cellspacing="8" style="margin: 20px 0px;">
+    <tr>
+        <td colspan="6">
+            <div class="billtitle"><span class="bankname">{{ BankName }}</span>借款凭证</div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="6">
+            {{ formatDate1 LoanDate }}
+        </td>
+    </tr>
+    <tr>       
+        <td class="titlecol">借款人全称</td>
+        <td colspan="3">{{ ClientName }}</td>
+        <td class="titlecol">贷款户账号</td>
+        <td>{{ LoanAcc }}</td>        
+    </tr>
+    <tr>
+        <td class="titlecol">贷款种类</td>
+        <td>{{ LoanType }}</td>
+        <td class="titlecol">利率</td>
+        <td>{{ InterestRate }}</td>
+        <td class="titlecol">存款户账号</td>
+        <td>{{ RepayAcc }}</td>
+    </tr>
+    <tr>
+        <td class="titlecol">贷款金额</td>
+        <td colspan="5">{{ formatMoney MoneyAmount }}</td>
+    </tr>
+    <tr>
+        <td class="titlecol">用途</td>
+        <td colspan="2">{{ Purpose</td>
+        <td class="titlecol">还款日期</td>
+        <td colspan="2">{{ formatMoney RepayDate }}</td>
+    </tr>
+</table>

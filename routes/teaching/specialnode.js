@@ -2,6 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
+const co = require('co');
 
 const dbContext = require('../../app/db-context');
 const teachingCache = require('../../app/cache/teaching-cache');
@@ -10,11 +11,17 @@ const templateCache = require('../../app/cache/template-cache');
 router.get('/:node/:id', function(req, res) {
   let wrapper = buildCommonNodeReturnWrapper(req.params.id);
   let node = req.params.node;
-  dbContext[node].findAll({
-    where: { TchRoutineID: wrapper.tchNode.RoutineID }
-  }).then(function(items) {
-    wrapper.itemList = items;
-    res.render('tspecial/' + node + '_' + wrapper.nodeIndex, wrapper);  
+  
+  co(function *() {
+      wrapper.itemList = yield dbContext[node].findAll({ where: { TchRoutineID: wrapper.tchNode.RoutineID } });
+      wrapper.subjects = yield dbContext.SubjectItem.findAll({
+          where: {
+              TchRoutineID: wrapper.tchNode.RoutineID,
+              TchNodeID: wrapper.tchNode.Row_ID
+          },
+          order: 'SubjectOrient'
+      });
+      res.render('tspecial/' + node + '_' + wrapper.nodeIndex, wrapper);  
   })
 });
 

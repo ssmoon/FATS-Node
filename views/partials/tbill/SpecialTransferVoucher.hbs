@@ -1,0 +1,60 @@
+﻿
+ 
+<table class="table table-bordered table-condensed" cellspacing="8" style="margin: 20px 0px;">
+    <tr>
+        <td colspan="6">
+            <div class="billtitle"><span class="bankname">{{ BankName }}</span>特种转账 {{ TransferOrient }} 凭证</div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="6">
+            {{ formatDate1 TimeMark }}
+        </td>
+    </tr>
+    <tr>
+        <td rowspan="3" class="titlecol">出票人</td>
+        <td class="titlecol">全称</td>
+        <td>{{ PayeeName }}</td>
+        <td rowspan="3" class="titlecol">收款人</td>
+        <td class="titlecol">全称</td>
+        <td>{{ RemitterName }}</td>
+    </tr>
+    <tr>
+        <td class="titlecol">账号</td>
+        <td>{{ PayeeAcc }}</td>
+        <td class="titlecol">账号</td>
+        <td>{{ RemitterAcc }}</td>
+    </tr>
+    <tr>
+        <td class="titlecol">开户银行</td>
+        <td>{{ PayeeBank }}</td>
+        <td class="titlecol">开户银行</td>
+        <td>{{ RemitterBank }}</td>
+    </tr>
+    <tr>
+        <td colspan="6" class="titlecol">
+            金额: {{ formatMoney MoneyAmount }}
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            原凭证名称: {{ OrgVoucherName }}
+        </td>
+        <td colspan="3">
+            原凭证号码: {{ OrgVoucherNo }}
+        </td>       
+    </tr>
+    <tr>
+        <td colspan="3">
+            原凭证金额: {{ formatMoney OrgVoucherAmount }}
+        </td>
+        <td colspan="3">
+            赔偿金: 0.00
+        </td>
+    </tr>
+    <tr>      
+        <td colspan="6">
+            转账原因: {{ TransferReason }}
+        </td>
+    </tr>
+</table>

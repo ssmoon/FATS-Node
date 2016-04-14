@@ -1,9 +1,4 @@
-﻿$(document).ready(function () {
-    if ($("#subjectfiller").length > 0) {
-        subjectFillerMng.initEvent();
-        subjectFillerMng.initCtrls();
-    }
-});
+var navigationT1Mng = require('./teaching1Comm');
 
 var subjectFillerMng = {
     initCtrls: function() {
@@ -21,7 +16,7 @@ var subjectFillerMng = {
             $("#subjectfiller .helparea").show();
             $("#subjectfiller .helparea div[data-idx=" + $("#subjectfiller").attr("data-curr") + "]").slideDown();
         })
-        $("#subjectnav").on("click", "button[data-step=auto]", function () {          
+        $("#subjectnav").on("click", "button[data-step=auto]", function () {
             $("#subjectfiller .panel[data-idx] :input[data-correct]").each(function () {
                 $(this).val($(this).attr("data-correct"));
             });
@@ -34,7 +29,7 @@ var subjectFillerMng = {
                 $("#navbar button[data-step=auto]").hide();
                 $("#navbar").show();
                 navigationT1Mng.checkStatus = 1;
-          
+
         })
         $("#subjectnav").on("click", "button[data-step=all]", function () {
             $("#subjectfiller .panel").show();
@@ -44,13 +39,12 @@ var subjectFillerMng = {
             $("#subjectfiller .errorarea").hide();
             $("#subjectfiller .helparea").hide();
             $("#subjectnav").hide();
-                      
-                $("#subjectnav").hide();
-                $("#navbar button[data-step=check]").hide();
-                $("#navbar button[data-step=auto]").hide();
-                $("#navbar").show();
-                navigationT1Mng.checkStatus = 1;
-           
+            
+            $("#navbar button[data-step=check]").hide();
+            $("#navbar button[data-step=auto]").hide();
+            $("#navbar").show();
+            navigationT1Mng.checkStatus = 1;
+
         })
         $("#subjectnav").on("click", "button[data-step=next]", function () {
             if ($("#subjectfiller").attr("data-curr") == "1") {
@@ -97,7 +91,8 @@ var subjectFillerMng = {
             }
             $("#subjectfiller .panel[data-idx=" + newSectionIdx + "]").show();
             $("#subjectfiller .panel[data-idx=" + newSectionIdx + "] a").click();
-        })       
+        })
     }
 }
 
+module.exports = subjectFillerMng;

@@ -1,0 +1,24 @@
+﻿<table class="table table-bordered table-condensed" cellspacing="8" style="margin: 20px 0px;">
+    <tr>
+        <td colspan="6">
+            <div class="billtitle"><span class="bankname">{{ BankName }}</span>现金支票</div>
+        </td>
+    </tr>
+    <tr>
+        <td class="titlecol">出票日期</td>
+        <td>{{ formatDate1 TimeMark }}</td>
+        <td class="titlecol">付款行名称</td>
+        <td>{{ BankName }}</td>
+    </tr>
+    <tr>
+        <td class="titlecol">收款人</td>
+        <td>{{ ClientName }}</td>
+        <td class="titlecol">出票人账号</td>
+        <td>{{ ClientAcc }}</td>
+    </tr>    
+    <tr>
+        <td class="titlecol">金额</td>
+        <td colspan="3">{{ formatMoney EntryAmount }}</td>
+    </tr>
+
+</table>

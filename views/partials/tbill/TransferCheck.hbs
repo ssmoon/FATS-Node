@@ -1,0 +1,45 @@
+﻿
+ 
+<table class="table table-bordered table-condensed" cellspacing="8">
+    <tr>
+        <td colspan="4">
+            <span class="pull-right">(京)F0014378号</span>
+            <div class="billtitle"><span class="bankname">{{ PayeeBank }}</span>转账支票</div>
+        </td>
+    </tr>
+    <tr>
+        <td class="titlecol">出票日期(大写)</td>
+        <td class="datacol"  data-compare="TimeMark" style="width: 250px;">
+            {{ formatDate2 Model.ChequeDate }}
+        </td>
+        <td class="titlecol">付款行名称</td>
+        <td class="datacol"  data-compare="PayeeBank" style="width: 250px;">
+            {{ PayeeBank }}
+        </td>
+    </tr>
+    <tr>
+        <td class="titlecol">收款人</td>
+        <td class="datacol" data-compare="RemitterName">
+            {{ RemitterName }}
+        </td>
+        <td class="titlecol">出票人账号</td>
+        <td class="datacol" data-compare="PayeeAcc">
+            {{ PayeeAcc }}
+        </td>
+    </tr>
+    <tr>
+        <td class="titlecol">人民币</td>
+        <td class="datacol"  data-compare="MoneyAmount">
+          {{ formatMoney MoneyAmount }}
+        </td>       
+        <td colspan ="2" data-compare="MoneyAmount">
+            &nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td class="titlecol">用途</td>
+        <td colspan="3" data-compare="Purpose">
+            {{ Purpose }}
+        </td>
+    </tr>
+</table>

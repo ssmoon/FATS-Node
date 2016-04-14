@@ -1,0 +1,45 @@
+﻿
+<table class="table table-bordered table-condensed" cellspacing="8" style="margin: 20px 0px;">
+    <tr>
+        <td colspan="4">
+            <div class="billtitle">{{ BillTitle }}</div>            
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            <div class="billtime">凭证日期: {{ formatDate1 TimeMark }}</div>
+        </td>
+    </tr>
+    <tr>
+        <td class="titlecol">账号</td>
+        <td class="titlecol">摘要</td>
+        <td class="titlecol">金额</td>
+        <td class="titlecol">表外科目</td>
+    </tr>
+    <tr>        
+        <td style="width: 25%">
+            <div class="form-group checkarea">
+                <label class="sr-only"></label>
+                <input type="text" placeholder="客户账号" data-correct="{{ CustomerAccNo }}" data-operror="" value="" maxlength="20" class="form-control" />        
+                <i class="form-control-feedback" />
+            </div>
+        </td>
+        <td style="width: 25%">
+            {{ Abstract
+        </td>
+        <td style="width: 25%">
+            <div class="form-group checkarea">
+                <label class="sr-only"></label>
+                <input type="text" maxlength="20" placeholder="发生额" data-correct="{{ formatMoney MoneyAmount }}" data-operror="" class="form-control" />
+                <i class="form-control-feedback" />
+            </div>
+        </td>
+        <td style="width: 25%">
+            <div class="form-group checkarea">
+                <label class="sr-only"></label>
+                <input type="text" maxlength="20" placeholder="科目名称" data-correct="{{ OuterSubject }}" data-operror="" data-ophint="" class="form-control" />
+                <i class="form-control-feedback" />
+            </div>
+        </td>
+    </tr>
+</table>

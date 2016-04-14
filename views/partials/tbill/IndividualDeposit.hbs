@@ -1,0 +1,68 @@
+﻿
+<table class="table table-bordered table-condensed" cellspacing="8" style="margin: 20px 0px;">
+    <tr>
+        <td colspan="7">
+            <div class="billtitle"><span class="bankname">{{ BankName }}</span>储蓄存款凭条</div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="7">
+            {{ formatDate1 DepositTime }}
+        </td>
+    </tr>
+    <tr>
+        <td class="verticalcol" rowspan="5">储户填写</td>
+        <td colspan="6" class="savingtype">
+            <input type="radio" disabled="disabled" @(Model.DepositType == "活期" ? "checked='checked'" : "") /><label>活期</label>
+            <input type="radio" disabled="disabled" /><label>储蓄卡</label>
+            <input type="radio" disabled="disabled" @(Model.DepositType == "整整" ? "checked='checked'" : "") /><label>整整</label>
+            <input type="radio" disabled="disabled" @(Model.DepositType == "零整" ? "checked='checked'" : "") /><label>零整</label>
+            <input type="radio" disabled="disabled" @(Model.DepositType == "整零" ? "checked='checked'" : "") " /><label>整零</label>
+            <input type="radio" disabled="disabled" /><label>定活</label>
+            <input type="radio" disabled="disabled" /><label>教育</label>
+            <input type="radio" disabled="disabled" @(Model.DepositType == "存本" ? "checked='checked'" : "") /><label>存本</label>
+            <input type="radio" disabled="disabled" /><label>其它</label>
+        </td>       
+    </tr>
+    <tr>
+        <td colspan="2">
+            户名: {{ DepositClient }}
+        </td>
+        <td colspan="2">
+            身份证件名称: 身份证
+        </td>
+        <td colspan="2">
+            证件号码: 312224198501211616
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            代办人姓名: 
+        </td>
+        <td colspan="2">
+            身份证件名称: 
+        </td>
+        <td colspan="2">
+            证件号码: 
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            币种: 人民币
+        </td>
+        <td colspan="2">
+            存期: {{ DepositPeriod }}
+        </td>
+        <td colspan="2">
+            &nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            新开户地址/电话:
+        </td>
+        <td colspan="2">
+            总金额: {{ formatMoney EntryAmount  }}
+        </td>
+    </tr>  
+</table>

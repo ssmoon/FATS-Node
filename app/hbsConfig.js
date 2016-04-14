@@ -60,6 +60,9 @@ module.exports = function (exphbs) {
       inverse: function(val) {
           return !val;
       },
+      inc: function(val, incCount) {
+          return val + incCount;
+      },
       bankDraftConverter: function(bankDraft, stepIdx) {
           switch (stepIdx) {
               case 2: {             

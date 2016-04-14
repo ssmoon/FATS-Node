@@ -1,0 +1,33 @@
+﻿
+<table class="table table-bordered table-condensed" cellspacing="8" style="margin: 20px 0px;">
+    <tr>
+        <td colspan="6">
+            <div class="billtitle"><span class="bankname">{{ BankName }}</span>利息传票</div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="6">
+            {{ formatDate1 TimeMark }}
+        </td>
+    </tr>
+    <tr>
+        <td rowspan="3" class="titlecol">借方</td>
+        <td class="titlecol">户名</td>
+        <td>利息支出</td>
+        <td rowspan="3" class="titlecol">贷方</td>
+        <td class="titlecol">户名</td>
+        <td>{{ ClientName }}</td>
+    </tr>
+    <tr>
+        <td class="titlecol">账号</td>
+        <td>001502101000001</td>
+        <td class="titlecol">账号</td>
+        <td>{{ ClientAcc }}</td>
+    </tr>
+    <tr>
+        <td class="titlecol" colspan="2">实付金额</td>
+        <td>{{ formatMoney InterestAmount }}</td>
+        <td class="titlecol">计息户账号</td>
+        <td>{{ ClientAcc }}</td>
+    </tr>  
+</table>
