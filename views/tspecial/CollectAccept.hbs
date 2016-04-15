@@ -1,0 +1,28 @@
+﻿<div id="maincontainer">
+    <div class="page-header page-header-fix">
+        <h3>{{ nodeName }}<small>{{ routineName }}</small></h3>
+    </div>
+    {{> tsupport/CaseDescription groupText }}
+    <input type='hidden' id='TchNodeID' value='{{ tchNode.Row_ID }}' />
+    <input type='hidden' id='TchRoutineID' value='{{ tchNode.RoutineID }}' />  
+    {{> tbill/CollectVoucher (collectAcceptConverter itemList nodeIndex) }}
+    {{#switch nodeIndex }}
+        {{#case 2}}
+            
+        {{/case}}
+        {{#case 5}}
+        
+        {{/case}}
+        {{#case 8}}           
+            {{> tsupport/SubjectFiller subjects }}
+        {{/case}}
+        {{#case 14}}           
+            {{> tsupport/SubjectFiller subjects }}
+        {{/case}}
+    {{/switch}}    
+</div>
+ 
+{{> tsupport/Teaching1Navigator }}
+
+
+

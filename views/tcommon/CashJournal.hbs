@@ -1,0 +1,85 @@
+﻿<div id="fillerstepper">
+    <div class="panel panel-info">
+        <div class="panel-heading">待完成的科目</div>
+        <div class="list-group">
+            {{#each this.itemList}}            
+                <a href="#" data-status="0" class="list-group-item" data-subject="现金日记账条目">
+                    <span class="glyphicon glyphicon-question-sign"></span>
+                    现金日记账条目
+                </a>
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+<div id="maincontainer">
+    <div class="page-header page-header-fix">
+        <h3>{{ nodeName }}<small>{{ routineName }}</small></h3>
+    </div>
+    {{> tsupport/CaseDescription groupText }}
+    <input type='hidden' id='TchNodeID' value='{{ tchNode.Row_ID }}' />
+    <input type='hidden' id='TchRoutineID' value='{{ tchNode.RoutineID }}' />  
+    <div id="subjectcontainer" class="tabcontent">
+        {{#each this.itemList }}        
+            <div data-subject="现金日记账条目">                
+                <table class="table table-bordered table-condensed" cellspacing="8">
+                    <thead>
+                        <tr class="titlecol">
+                            <td colspan="5"><div class="billtitle"><span class="bankname">{{ BankName }}</span>现金{{ CashOrient }}日记簿</div></td>
+                        </tr>
+                        <tr class="titlecol">
+                            <td class="date" style="width: 100px;">日期</td>
+                            <td class="clientacc"style="width: 150px;">客户账号</td>
+                            <td class="subject">对方科目</td>
+                            <td class="amount">金额</td>\
+                            <td class="voucherno">凭证号</td>
+                        </tr>                     
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="date">
+                                <div class="form-group checkarea">
+                                    <label class="sr-only"></label>
+                                    <input type="text" maxlength="20" placeholder="发生日期" data-correct="{{ formatDate1 TimeMark }}" data-operror="错误，请在思考后向指导老师寻求帮助" data-ophint="错误，请在思考后向指导老师寻求帮助" class="form-control" />
+                                    <i class="form-control-feedback" />
+                                </div>
+                            </td>
+                            <td class="clientacc">
+                                <div class="form-group checkarea">
+                                    <label class="sr-only"></label>
+                                    <input type="text" maxlength="20" placeholder="客户账号" data-correct="{{ ClientAcc }}" data-operror="错误，请在思考后向指导老师寻求帮助" data-ophint="错误，请在思考后向指导老师寻求帮助" class="form-control" />
+                                    <i class="form-control-feedback" />
+                                </div>
+                            </td>
+                            <td class="subject">
+                                <div class="form-group checkarea">
+                                    <label class="sr-only"></label>
+                                    <input type="text" maxlength="20" placeholder="对方科目" data-correct="{{ CounterSubject }}" data-operror="错误，请在思考后向指导老师寻求帮助" data-ophint="错误，请在思考后向指导老师寻求帮助" class="form-control" />
+                                    <i class="form-control-feedback" />
+                                </div>
+                            </td>
+                            <td class="amount">
+                                <div class="form-group checkarea">
+                                    <label class="sr-only"></label>
+                                    <input type="text" maxlength="20" placeholder="贷方发生" data-correct="{{ formatMoney MoneyAmount }}" data-operror="错误，请在思考后向指导老师寻求帮助" data-ophint="错误，请在思考后向指导老师寻求帮助" class="form-control" />
+                                    <i class="form-control-feedback" />
+                                </div>
+                            </td>                            
+                            <td class="voucherno">
+                                <div class="form-group checkarea">
+                                    <label class="sr-only"></label>
+                                    <input type="text" maxlength="20" placeholder="凭证号" data-correct="{{ VoucherNo }}" data-operror="错误，请在思考后向指导老师寻求帮助" data-ophint="错误，请在思考后向指导老师寻求帮助" class="form-control" />
+                                    <i class="form-control-feedback" />
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        {{ /each }}
+        {{> tsupport/Teaching1Responsor }} 
+    </div>
+ 
+</div>
+ 
+{{> tsupport/Teaching1Navigator }}

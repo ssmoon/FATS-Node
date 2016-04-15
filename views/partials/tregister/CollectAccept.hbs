@@ -1,0 +1,124 @@
+<table class="table table-bordered table-condensed" cellspacing="8" style="margin: 20px 0px;">
+    <tr>
+        <td colspan="11">
+            <div class="billtitle">{{ this[this.length - 1].BankName }}托收承付登记薄</div>
+        </td>
+    </tr>
+    <tr class="titlecol">
+        <td style="width: 100px;">日期</td>
+        <td>金额</td>
+        <td>托收人</td>
+        <td>托收人账号</td>
+        <td>托收方银行</td>
+        <td>承付人</td>
+        <td>承付人账号</td>
+        <td>承付方银行</td>
+        <td>结存金额</td>
+        <td style="width: 100px;">承付期满时间</td>
+        <td style="width: 80px;">办理结果</td>
+    </tr>
+    {{#each this }}
+       {{#ifcond @index '<=' (inc this.length -2) }}
+        <tr>
+            <td>{{ formatDate1 TimeMark }}</td>
+            <td>
+                {{ formatMoney MoneyAmount }}
+            </td>
+            <td>
+                {{ RemitterName }}
+            </td>
+            <td>
+                {{ RemitterAcc }}
+            </td>
+            <td>
+                {{ RemitterBank }}
+            </td>
+            <td>
+                {{ PayeeName }}
+            </td>
+            <td>
+                {{ PayeeAcc }}
+            </td>
+            <td>
+                {{ PayeeBank }}
+            </td>
+            <td>
+                {{ formatMoney FinalAmount }}
+            </td>
+            <td>
+                {{ formatDate1 AcceptDate }}
+            </td>
+            <td>
+                {{ OpResult }}
+            </td>
+        </tr>
+       {{/ifcond}}
+    {{/each}}
+    {{#with this[this.length - 1]}}
+    <tr>
+        <td>{{ formatDate1 TimeMark }}</td>
+        <td>
+            <div class="form-group checkarea">
+                <label class="sr-only"></label>
+                <input type="text" maxlength="20" placeholder="" data-correct="{{ formatMoney MoneyAmount }}" data-operror="" class="form-control" />
+                <i class="form-control-feedback" />
+            </div>
+        </td>
+        <td>
+            <div class="form-group checkarea">
+                <label class="sr-only"></label>
+                <input type="text" maxlength="20" placeholder="" data-correct="{{ RemitterName }}" data-operror="" class="form-control" />
+                <i class="form-control-feedback" />
+            </div>
+        </td>
+        <td>
+            <div class="form-group checkarea">
+                <label class="sr-only"></label>
+                <input type="text" maxlength="20" placeholder="" data-correct="{{ RemitterAcc }}" data-operror="" class="form-control" />
+                <i class="form-control-feedback" />
+            </div>
+        </td>
+        <td>
+            <div class="form-group checkarea">
+                <label class="sr-only"></label>
+                <input type="text" maxlength="20" placeholder="" data-correct="{{ RemitterBank }}" data-operror="" class="form-control" />
+                <i class="form-control-feedback" />
+            </div>
+        </td>
+        <td>
+            <div class="form-group checkarea">
+                <label class="sr-only"></label>
+                <input type="text" maxlength="20" placeholder="" data-correct="{{ PayeeName }}" data-operror="" class="form-control" />
+                <i class="form-control-feedback" />
+            </div>
+        </td>
+        <td>
+            <div class="form-group checkarea">
+                <label class="sr-only"></label>
+                <input type="text" maxlength="20" placeholder="" data-correct="{{ PayeeAcc }}" data-operror="" class="form-control" />
+                <i class="form-control-feedback" />
+            </div>
+        </td>
+        <td>
+            <div class="form-group checkarea">
+                <label class="sr-only"></label>
+                <input type="text" maxlength="20" placeholder="" data-correct="{{ PayeeBank }}" data-operror="" class="form-control" />
+                <i class="form-control-feedback" />
+            </div>
+        </td>
+        <td>
+            <div class="form-group checkarea">
+                <label class="sr-only"></label>
+                <input type="text" maxlength="20" placeholder="" data-correct="{{ formatMoney FinalAmount }}" data-operror="" class="form-control" />
+                <i class="form-control-feedback" />
+            </div>
+        </td>
+        <td>
+            {{ formatDate1 AcceptDate }}
+        </td>
+        <td>
+            {{ OpResult }}
+        </td>
+    </tr>
+    {{/with}} 
+</table>

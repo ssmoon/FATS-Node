@@ -21,7 +21,7 @@ router.get('/:node/:id', function(req, res) {
           },
           order: 'SubjectOrient'
       });
-      res.render('tspecial/' + node + '_' + wrapper.nodeIndex, wrapper);  
+      res.render('tspecial/' + node, wrapper);  
   })
 });
 
@@ -34,6 +34,7 @@ function buildCommonNodeReturnWrapper(tchNodeID) {
   let tmpRoutine = templateCache.getTemplateRoutine(tchRoutine.TmpRoutineID);
   let tmpNode = templateCache.getTemplateNode(tchNode.TmpNodeID);
   return {    
+    routineTag: tmpRoutine.RoutineTag,
     routineName: tmpRoutine.RoutineName,
     nodeName: tmpNode.NodeName,
     groupText: group.GroupText,

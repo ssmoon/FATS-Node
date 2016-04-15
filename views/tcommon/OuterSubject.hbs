@@ -1,0 +1,73 @@
+﻿<div id="fillerstepper">
+    <div class="panel panel-info">
+        <div class="panel-heading">待完成的科目</div>
+        <div class="list-group">
+            {{#each this.itemList}}            
+                <a href="#" data-status="0" class="list-group-item" data-subject="{{ SubjectName }}">
+                    <span class="glyphicon glyphicon-question-sign"></span>
+                    表外科目 {{ inc @index }}
+                </a>
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+<div id="maincontainer">
+    <div class="page-header page-header-fix">
+        <h3>{{ nodeName }}<small>{{ routineName }}</small></h3>
+    </div>
+    {{> tsupport/CaseDescription groupText }}
+    <input type='hidden' id='TchNodeID' value='{{ tchNode.Row_ID }}' />
+    <input type='hidden' id='TchRoutineID' value='{{ tchNode.RoutineID }}' />  
+    <div id="subjectcontainer" class="tabcontent">
+        {{#each this.itemList }}        
+            <div data-subject="{{ SubjectName }}">
+                <table class="table table-bordered table-condensed" cellspacing="8">
+                    <thead>
+                        <tr class="titlecol">
+                            <td colspan="5"><div class="billtitle"><span class="bankname">{{ BankName }}</span>表外科目凭证</div></td>
+                        </tr>
+                        <tr class="titlecol">
+                            <td class="date" style="width: 100px;">日期</td>
+                            <td class="clientacc" style="width: 150px;">客户账号</td>
+                            <td class="subject">科目名称</td>
+                            <td class="amount">金额</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="date">                                        
+                              {{ formatDate1 TimeMark }}                       
+                            </td>
+                            <td class="clientacc">
+                                <div class="form-group checkarea">
+                                    <label class="sr-only"></label>
+                                    <input type="text" maxlength="20" placeholder="客户账号" data-correct="{{ ClientAcc }}" data-correct="{{ formatDate1 TimeMark }}" data-operror="错误，请在思考后向指导老师寻求帮助" data-ophint="错误，请在思考后向指导老师寻求帮助" class="form-control" />
+                                    <i class="form-control-feedback" />
+                                </div>
+                            </td>
+                            <td class="subject">
+                                <div class="form-group checkarea">
+                                    <label class="sr-only"></label>
+                                    <input type="text" maxlength="20" placeholder="科目名称" data-correct="{{ SubjectName }}" data-correct="{{ formatDate1 TimeMark }}" data-operror="错误，请在思考后向指导老师寻求帮助" data-ophint="错误，请在思考后向指导老师寻求帮助" class="form-control" />
+                                    <i class="form-control-feedback" />
+                                </div>
+                            </td>
+                            <td class="amount">
+                                <div class="form-group checkarea">
+                                    <label class="sr-only"></label>
+                                    <input type="text" maxlength="20" placeholder="金额" data-correct="{{ formatMoney MoneyAmount }}" data-correct="{{ formatDate1 TimeMark }}" data-operror="错误，请在思考后向指导老师寻求帮助" data-ophint="错误，请在思考后向指导老师寻求帮助" class="form-control" />
+                                    <i class="form-control-feedback" />
+                                </div>
+                            </td>                
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        {{ /each }}
+        {{> tsupport/Teaching1Responsor }} 
+    </div>
+ 
+</div>
+ 
+{{> tsupport/Teaching1Navigator }}

@@ -1,0 +1,32 @@
+﻿<div id="maincontainer">
+    <div class="page-header page-header-fix">
+        <h3>{{ nodeName }}<small>{{ routineName }}</small></h3>
+    </div>
+    {{> tsupport/CaseDescription groupText }}
+    <input type='hidden' id='TchNodeID' value='{{ tchNode.Row_ID }}' />
+    <input type='hidden' id='TchRoutineID' value='{{ tchNode.RoutineID }}' />  
+    {{#switch nodeIndex }}
+        {{#case 2}}
+            {{> tbill/TradeAcceptance (bankAcceptBillConverter itemList nodeIndex) }}
+            {{> tsupport/SubjectFiller subjects }}
+        {{/case}}
+        {{#case 9}}
+            {{> tbill/CollectVoucher (bankAcceptBillConverter itemList nodeIndex) }}
+        {{/case}}
+        {{#case 12}}
+            {{> tbill/SpecialTransferVoucher (bankAcceptBillConverter itemList nodeIndex) }}
+            {{> tsupport/SubjectFiller subjects }}
+        {{/case}}
+        {{#case 17}}
+            {{> tbill/SpecialTransferVoucher (bankAcceptBillConverter itemList nodeIndex) }}
+            {{> tsupport/SubjectFiller subjects }}
+        {{/case}}
+        {{#case 23}}
+            {{> tbill/ElectronicVoucher (bankAcceptBillConverter itemList nodeIndex) }}
+            {{> tsupport/SubjectFiller subjects }}
+        {{/case}}
+    {{/switch}}
+    
+</div>
+ 
+{{> tsupport/Teaching1Navigator }}

@@ -21,58 +21,16 @@ router.get('/Guide/:id', function(req, res, next) {
   });
 })
 
-router.get('/outersubject/:id', function(req, res, next) {
-  let wrapper = buildCommonNodeReturnWrapper(req.params.id);  
-  wrapper.itemList = dbContext.OuterSubject.findAll({
-    where: { TchNodeID: wrapper.tchNode.Row_ID, TchRoutineID: wrapper.tchNode.RoutineID }
-  });  
+router.get('/:node/:id', function(req, res, next) {
+  let wrapper = buildCommonNodeReturnWrapper(req.params.id);
+  let node = req.params.node;
   
-  res.render('outersubject', wrapper);
-})
-
-router.get('/generalledger/:id', function(req, res, next) {
-  let wrapper = buildCommonNodeReturnWrapper(req.params.id);  
-  wrapper.itemList = dbContext.GeneralLedger.findAll({
-    where: { TchNodeID: wrapper.tchNode.Row_ID, TchRoutineID: wrapper.tchNode.RoutineID }
-  });  
-  
-  res.render('generalledger', wrapper);
-})
-
-router.get('/detailedledger/:id', function(req, res, next) {
-  let wrapper = buildCommonNodeReturnWrapper(req.params.id);  
-  wrapper.itemList = dbContext.DetailedLedger.findAll({
-    where: { TchNodeID: wrapper.tchNode.Row_ID, TchRoutineID: wrapper.tchNode.RoutineID }
-  });  
-  
-  res.render('detailedledger', wrapper);
-})
-
-router.get('/customerledger/:id', function(req, res, next) {
-  let wrapper = buildCommonNodeReturnWrapper(req.params.id);  
-  wrapper.itemList = dbContext.CustomerLedger.findAll({
-    where: { TchNodeID: wrapper.tchNode.Row_ID, TchRoutineID: wrapper.tchNode.RoutineID }
-  });  
-  
-  res.render('customerledger', wrapper);
-})
-
-router.get('/cashjournal/:id', function(req, res, next) {
-  let wrapper = buildCommonNodeReturnWrapper(req.params.id);  
-  wrapper.itemList = dbContext.CashJournal.findAll({
-    where: { TchNodeID: wrapper.tchNode.Row_ID, TchRoutineID: wrapper.tchNode.RoutineID }
-  });  
-  
-  res.render('outersubject', wrapper);
-})
-
-router.get('/subjectfiller/:id', function(req, res, next) {
-  let wrapper = buildCommonNodeReturnWrapper(req.params.id);  
-  wrapper.itemList = dbContext.SubjectItem.findAll({
-    where: { TchNodeID: wrapper.tchNode.Row_ID, TchRoutineID: wrapper.tchNode.RoutineID }
-  });  
-  
-  res.render('outersubject', wrapper);
+  co(function *() {
+      wrapper.itemList = yield dbContext[node].findAll({ 
+        where: { TchNodeID: wrapper.tchNode.Row_ID, TchRoutineID: wrapper.tchNode.RoutineID } 
+      });     
+      res.render('tcommon/' + node, wrapper);  
+  })
 })
 
 function buildCommonNodeReturnWrapper(tchNodeID) {

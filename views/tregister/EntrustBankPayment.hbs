@@ -5,11 +5,10 @@
     </div>
     {{> tsupport/CaseDescription groupText }}
     <input type='hidden' id='TchNodeID' value='{{ tchNode.Row_ID }}' />
-    <input type='hidden' id='TchRoutineID' value='{{ tchNode.RoutineID }}' />    
-    {{> tbill/BusinessProxy (bankDraftConverter itemList nodeIndex) }}
+    <input type='hidden' id='TchRoutineID' value='{{ tchNode.RoutineID }}' />  
+    {{> tregister/EntrustBankPayment (entrustBankPaymentConverter itemList nodeIndex) }}
     {{> tsupport/SubjectFiller subjects }}
 </div>
-
  
 {{> tsupport/Teaching1Navigator }}
 

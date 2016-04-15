@@ -1,0 +1,104 @@
+﻿<div id="fillerstepper">
+    <div class="panel panel-info">
+        <div class="panel-heading">待完成的科目</div>
+        <div class="list-group">
+            {{#each this.itemList}}            
+                <a href="#" data-status="0" class="list-group-item" data-subject="{{ SubjectName }}">
+                    <span class="glyphicon glyphicon-question-sign"></span>
+                    {{ SubjectName }}
+                </a>
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+<div id="maincontainer">
+    <div class="page-header page-header-fix">
+        <h3>{{ nodeName }}<small>{{ routineName }}</small></h3>
+    </div>
+    {{> tsupport/CaseDescription groupText }}
+    <input type='hidden' id='TchNodeID' value='{{ tchNode.Row_ID }}' />
+    <input type='hidden' id='TchRoutineID' value='{{ tchNode.RoutineID }}' />  
+    <div id="subjectcontainer" class="tabcontent">
+        {{#each this.itemList }}        
+            <div data-subject="{{ SubjectName }}">
+                <div class="summary">
+                     当前科目: <span class="curr">{{ SubjectName }}</span>  <span class="hint">(点击左边的科目列表以完成其它的待记账科目)</span>
+                </div>
+                <table class="table table-bordered table-condensed" cellspacing="8">                  
+                    <thead>
+                        <tr class="titlecol">
+                            <td colspan="8"><div class="billtitle"><span class="bankname">{{ BankName }}</span>明细账</div></td>
+                        </tr>
+                        <tr class="titlecol">
+                            <td class="date" rowspan="2" style="width: 100px;">日期</td>
+                            <td class="digest" rowspan="2" style="width: 150px;">摘要</td>
+                            <td class="amount" colspan="2">发生额</td>
+                            <td class="balance" colspan="2">余额</td>
+                        </tr>
+                        <tr class="titlecol">
+                            <td class="debit" style="width: 80px;">借方</td>
+                            <td class="credit" style="width: 80px;">贷方</td>
+                            <td class="balance" style="width: 80px;">方向</td>
+                            <td class="value" style="width: 120px;">金额</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="date">{{ formatDate1 TimeMark }}</td>
+                            <td class="digest">
+                                {{ BalanceAbstract }}
+                            </td>
+                            <td class="debit">&nbsp;</td>
+                            <td class="credit">&nbsp;</td>
+                            <td class="balance">{{ getBalanceOrient BalanceOrient }}</td>
+                            <td class="value">{{ formatMoney BalanceSum }}</td>
+                        </tr>
+                        <tr>
+                            <td class="date">
+                                <div class="form-group checkarea">
+                                    <label class="sr-only"></label>
+                                    <input type="text" maxlength="20" placeholder="发生日期" data-correct="{{ formatDate1 TimeMark }}" data-operror="错误，请在思考后向指导老师寻求帮助" data-ophint="错误，请在思考后向指导老师寻求帮助" class="form-control" />
+                                    <i class="form-control-feedback"  />
+                                </div>
+                            </td>
+                            <td class="digest">
+                                <div class="form-group checkarea">
+                                    <label class="sr-only"></label>
+                                    <input type="text" maxlength="20" placeholder="摘要" data-correct="{{ Abstract }}" data-operror="错误，请在思考后向指导老师寻求帮助" data-ophint="错误，请在思考后向指导老师寻求帮助" class="form-control" />
+                                    <i class="form-control-feedback" />
+                                </div>
+                            </td>
+                            <td class="debit">
+                                <div class="form-group checkarea">
+                                    <label class="sr-only"></label>
+                                    <input type="text" maxlength="20" placeholder="借方发生" data-correct="{{ formatMoney DebitSum }}" data-operror="错误，请在思考后向指导老师寻求帮助" data-ophint="错误，请在思考后向指导老师寻求帮助" class="form-control" />
+                                    <i class="form-control-feedback" />
+                                </div>                                
+                            </td>
+                            <td class="credit">
+                                <div class="form-group checkarea">
+                                    <label class="sr-only"></label>
+                                    <input type="text" maxlength="20" placeholder="贷方发生" data-correct="{{ formatMoney CreditSum }}" data-operror="错误，请在思考后向指导老师寻求帮助" data-ophint="错误，请在思考后向指导老师寻求帮助" class="form-control" />
+                                    <i class="form-control-feedback" />
+                                </div>
+                            </td>
+                            <td class="balance">{{ getBalanceOrient BalanceOrient }}</td>
+                            <td class="value">
+                                <div class="form-group checkarea">
+                                    <label class="sr-only"></label>
+                                    <input type="text" maxlength="20" placeholder="余额" data-correct="{{ formatMoney FinalSum }}" data-operror="错误，请在思考后向指导老师寻求帮助" data-ophint="错误，请在思考后向指导老师寻求帮助" class="form-control" />
+                                    <i class="form-control-feedback" />
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        {{ /each }}
+        {{> tsupport/Teaching1Responsor }} 
+    </div>
+ 
+</div>
+ 
+{{> tsupport/Teaching1Navigator }}
