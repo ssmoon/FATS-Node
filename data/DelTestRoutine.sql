@@ -45,6 +45,18 @@ SET @sqlstr = CONCAT('Delete From MoneyRemittance where TchRoutineID in (Select 
 PREPARE stmt FROM @sqlstr;
 EXECUTE stmt; 
 
+SET @sqlstr = CONCAT('Delete From Loan where TchRoutineID in (Select Row_ID From TeachingRoutine Where TmpRoutineID in ', ids, ')');
+PREPARE stmt FROM @sqlstr;
+EXECUTE stmt; 
+
+SET @sqlstr = CONCAT('Delete From Discounting where TchRoutineID in (Select Row_ID From TeachingRoutine Where TmpRoutineID in ', ids, ')');
+PREPARE stmt FROM @sqlstr;
+EXECUTE stmt; 
+
+SET @sqlstr = CONCAT('Delete From UnitSaving where TchRoutineID in (Select Row_ID From TeachingRoutine Where TmpRoutineID in ', ids, ')');
+PREPARE stmt FROM @sqlstr;
+EXECUTE stmt; 
+
 SET @sqlstr = CONCAT('Delete From SubjectItem where TchRoutineID in (Select Row_ID From TeachingRoutine Where TmpRoutineID in ', ids, ')');
 PREPARE stmt FROM @sqlstr;
 EXECUTE stmt; 

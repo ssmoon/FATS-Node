@@ -794,7 +794,7 @@ module.exports = {
             /*******************************************************************/
                       
             yield dbContext.UnitSaving.bulkCreate(sUnitSaving.map((n) => {
-                let tchRoutineID = teachingRList.find((r) => { return r.TmpRoutineID == n.TchRoutineID }).Row_ID;
+                let tchRoutineID = teachingRList.find((r) => { return r.TmpRoutineID == n.流程 }).Row_ID;
                 return {
                     TchRoutineID: tchRoutineID,
                     TchRoutineTag: '',               
@@ -811,36 +811,41 @@ module.exports = {
             }))
             
             yield dbContext.Loan.bulkCreate(sLoan.map((n) => {
-                let tchRoutineID = teachingRList.find((r) => { return r.TmpRoutineID == n.TchRoutineID }).Row_ID;
+                let tchRoutineID = teachingRList.find((r) => { return r.TmpRoutineID == n.流程 }).Row_ID;
                 return {
                     TchRoutineID: tchRoutineID,
-                    TchRoutineTag: '',               
-                    TimeMark: n.日期,
+                    TchRoutineTag: '',   
                     InterestAmount: n.利息,
-                    EntryAmount: n.金额,
-                    ClientAcc: n.账号,
+                    MoneyAmount: n.金额,
                     ClientName: n.单位名称,
                     BankName: n.银行名称,
-                    VoucherNo: n.凭证号码,
-                    MoneySource: n.来源,
                     Purpose: n.用途,
+                    InterestRate: n.利率,
+                    LoanType: n.贷款种类,
+                    LoanAcc: n.贷款户账号,
+                    RepayAcc: n.存款户账号,
+                    LoanDate: n.借款日期,
+                    RepayDate: n.还贷日期
                 }
             }))
             
             yield dbContext.Discounting.bulkCreate(sDiscounting.map((n) => {
-                let tchRoutineID = teachingRList.find((r) => { return r.TmpRoutineID == n.TchRoutineID }).Row_ID;
+                let tchRoutineID = teachingRList.find((r) => { return r.TmpRoutineID == n.流程 }).Row_ID;
                 return {
                     TchRoutineID: tchRoutineID,
                     TchRoutineTag: '',               
                     TimeMark: n.日期,
-                    InterestAmount: n.利息,
-                    EntryAmount: n.金额,
-                    ClientAcc: n.账号,
-                    ClientName: n.单位名称,
+                    ClientAcc: n.单位名称,
                     BankName: n.银行名称,
-                    VoucherNo: n.凭证号码,
-                    MoneySource: n.来源,
-                    Purpose: n.用途,
+                    EntryAmount: n.汇票金额,
+                    DiscountInterest: n.贴现利息,
+                    DiscountAmount: n.实付贴现金额,
+                    DiscountRate: n.贴现率,
+                    AcceptBank: n.承兑银行,
+                    VoucherNo: n.汇票号,
+                    VoucherType: n.汇票种类,
+                    DraftDate: n.出票日,
+                    DueDate: n.到期日
                 }
             }))
             

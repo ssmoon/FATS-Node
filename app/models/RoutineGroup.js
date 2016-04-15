@@ -18,15 +18,15 @@ module.exports = function(sequelize, DataTypes) {
     },
     GroupText: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: true
     },
     RoutineDesc: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     RoutineIntro: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     }
   }, {
     timestamps: false,
