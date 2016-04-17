@@ -29,6 +29,7 @@ function n3_to_OuterSubject(obj) {
     map(obj, target)
         .forMember('RemitterBank', 'BankName')
         .forMember('CollectDate', 'TimeMark')
+        .forMember('MoneyAmount', 'FinalAmount')        
         .directSetVal('BillTitle', '表外科目收入凭证')
         .directSetVal('OpResult', '待托收');
    return target;
@@ -39,6 +40,7 @@ function n6_to_OuterSubject(obj) {
     map(obj, target)
         .forMember('PayeeBank', 'BankName')
         .forMember('CollectDate', 'TimeMark')
+        .forMember('MoneyAmount', 'FinalAmount')
         .directSetVal('BillTitle', '表外科目收入凭证')
         .directSetVal('OpResult', '待承付');
    return target;
@@ -49,6 +51,7 @@ function n11_to_OuterSubject(obj) {
     map(obj, target)
         .forMember('PayeeBank', 'BankName')
         .forMember('AcceptDate', 'TimeMark')
+        .directSetVal('FinalAmount', 0)
         .directSetVal('BillTitle', '表外科目收入凭证')
         .directSetVal('OpResult', '已承付');
    return target;
@@ -59,6 +62,7 @@ function n17_to_OuterSubject(obj) {
     map(obj, target)
         .forMember('RemitterBank', 'BankName')
         .forMember('AcceptDate', 'TimeMark')
+        .directSetVal('FinalAmount', 0)
         .directSetVal('BillTitle', '表外科目收入凭证')
         .directSetVal('OpResult', '已收款');
    return target;

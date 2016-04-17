@@ -1,4 +1,4 @@
-﻿<div id="maincontainer">
+﻿<div id="maincontainer" {{#ifCond nodeIndex '==' 2}}class='fullwidth'{{/ifCond}}>
     <div class="page-header page-header-fix">
         <h3>{{ nodeName }}<small>{{ routineName }}</small></h3>
     </div>
@@ -8,7 +8,7 @@
     {{> tbill/CollectVoucher (collectAcceptConverter itemList nodeIndex) }}
     {{#switch nodeIndex }}
         {{#case 2}}
-            
+            {{> tsupport/NoAction false}}
         {{/case}}
         {{#case 5}}
         
