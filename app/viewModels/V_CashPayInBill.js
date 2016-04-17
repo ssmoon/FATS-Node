@@ -1,9 +1,9 @@
-﻿module.exports = {
-    ClientName: '',
-    ClientAcc: '',
-    BankName: '',
-    MoneySource: '',
-    PayInMan: '',
-    TimeMark: '',
-    EntryAmount: '',
+﻿module.exports = function() {
+    this.ClientName = '';
+    this.ClientAcc = '';
+    this.BankName = '';
+    this.MoneySource = '';
+    this.PayInMan = '';
+    this.TimeMark = '';
+    this.EntryAmount = '';
 }

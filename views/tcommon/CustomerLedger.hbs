@@ -20,7 +20,7 @@
     <input type='hidden' id='TchNodeID' value='{{ tchNode.Row_ID }}' />
     <input type='hidden' id='TchRoutineID' value='{{ tchNode.RoutineID }}' />  
     <div id="subjectcontainer" class="tabcontent">
-        {{#each this.itemList }}        
+        {{#each itemList}}
             <div data-subject="{{ SubjectName }}">
                 <div class="summary">
                   当前科目: <span class="curr">{{ SubjectName }}</span>  <span class="hint">(点击左边的科目列表以完成其它的待记账科目)</span>
@@ -61,7 +61,7 @@
                             <td>&nbsp;</td>
                             <td>&nbsp;</td>
                             <td>借</td>
-                            <td>{{ formatMoney clInfo.BalanceSum }} </td>
+                            <td>{{ formatMoney BalanceSum }} </td>
                         </tr>
                         <tr>
                             <td>{{ getMonth TimeMark }}</td>
@@ -112,7 +112,7 @@
                     </tbody>
                 </table>
             </div>
-        {{ /each }}
+        {{/each}}
         {{> tsupport/Teaching1Responsor }} 
     </div>
  

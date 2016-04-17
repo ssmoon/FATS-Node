@@ -20,7 +20,7 @@
     <input type='hidden' id='TchNodeID' value='{{ tchNode.Row_ID }}' />
     <input type='hidden' id='TchRoutineID' value='{{ tchNode.RoutineID }}' />  
     <div id="subjectcontainer" class="tabcontent">
-        {{#each this.itemList }}        
+        {{#each itemList}}        
             <div data-subject="{{ SubjectName }}">
                 <table class="table table-bordered table-condensed" cellspacing="8">
                     <thead>
@@ -64,7 +64,7 @@
                     </tbody>
                 </table>
             </div>
-        {{ /each }}
+        {{/each}}
         {{> tsupport/Teaching1Responsor }} 
     </div>
  

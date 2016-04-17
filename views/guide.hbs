@@ -10,7 +10,8 @@
     <div class="mainprocess">
        
         {{#each groups}}
-          <div class="group" data-groupidx="@tchNode.RelTmpNode.GroupIdx" data-node-id="@tchNode.Row_ID">
+            {{log this.FirstNode}}
+          <div class="group" data-groupidx="{{GroupIdx}}" data-node-id="{{FirstNodeID}}">
               
               <div class="grouptitle">{{RoutineDesc}}</div>
           </div>    

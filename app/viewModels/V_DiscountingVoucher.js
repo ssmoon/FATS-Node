@@ -1,15 +1,15 @@
-﻿module.exports = {
-    TimeMark: '',
-    DraftDate: '',
-    DueDate: '',
-    ClientAcc: '',
-    ClientName: '',
-    BankName: '',
-    VoucherNo: '',
-    VoucherType: '',
-    EntryAmount: '',
-    DiscountInterest: '',
-    DiscountAmount: '',
-    DiscountRate: '',
-    AcceptBank: ''
+﻿module.exports = function() {
+    this.TimeMark = '';
+    this.DraftDate = '';
+    this.DueDate = '';
+    this.ClientAcc = '';
+    this.ClientName = '';
+    this.BankName = '';
+    this.VoucherNo = '';
+    this.VoucherType = '';
+    this.EntryAmount = '';
+    this.DiscountInterest = '';
+    this.DiscountAmount = '';
+    this.DiscountRate = '';
+    this.AcceptBank = '';
 }

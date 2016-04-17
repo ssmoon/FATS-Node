@@ -1,26 +1,26 @@
 
-<div id="maincontainer">
+<div id="maincontainer" class='fullwidth'>
     <div class="page-header page-header-fix">
         <h3>{{ nodeName }}<small>{{ routineName }}</small></h3>
     </div>
     {{> tsupport/CaseDescription groupText }}
     <input type='hidden' id='TchNodeID' value='{{ tchNode.Row_ID }}' />
     <input type='hidden' id='TchRoutineID' value='{{ tchNode.RoutineID }}' />  
-    {{#switch nodeIndex }}
+    {{#switch nodeIndex}}
         {{#case 6}}
-            {{> tregister/CollectAccept (bankAcceptBillConverter itemList nodeIndex) }}
+            {{> tregister/BankAcceptBill (bankAcceptBillConverter itemList nodeIndex) }}
         {{/case}}
         {{#case 10}}
             {{> tregister/CollectAccept (bankAcceptBillConverter itemList nodeIndex) }}
         {{/case}}
         {{#case 20}}
             {{> tregister/BankAcceptBill (bankAcceptBillConverter itemList nodeIndex) }}
+            {{> tsupport/NoAction false}}
         {{/case}}
         {{#case 26}}
-            {{> tregister/BankAcceptBill (bankAcceptBillConverter itemList nodeIndex) }}
+            {{> tregister/CollectAccept (bankAcceptBillConverter itemList nodeIndex) }}
         {{/case}}
     {{/switch}}
-    {{> tsupport/SubjectFiller subjects }}
 </div>
  
 {{> tsupport/Teaching1Navigator }}

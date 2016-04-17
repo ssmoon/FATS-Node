@@ -1,13 +1,13 @@
 ﻿//商业承兑汇票
-module.exports = {
-    RemitterName: '',
-    RemitterAcc: '',
-    RemitterBank: '',
-    PayeeName: '',
-    PayeeAcc: '',
-    PayeeBank: '',
-    MoneyAmount: '',
-    DrawBillDate: '',
-    IncomeBillDate: '',
-    Purpose: '',
+module.exports = function() {
+    this.RemitterName = '';
+    this.RemitterAcc = '';
+    this.RemitterBank = '';
+    this.PayeeName = '';
+    this.PayeeAcc = '';
+    this.PayeeBank = '';
+    this.MoneyAmount = '';
+    this.DrawBillDate = '';
+    this.IncomeBillDate = '';
+    this.Purpose = '';
 }

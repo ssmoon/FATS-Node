@@ -101,7 +101,7 @@ module.exports = function (exphbs) {
         }
       },
       bankDraftConverter: function(items, stepIdx) {
-          return bankAcceptBillConverter(items, stepIdx)
+          return bankDraftConverter(items, stepIdx)
       },
       bankAcceptBillConverter: function(items, stepIdx) {
           return bankAcceptBillConverter(items, stepIdx)

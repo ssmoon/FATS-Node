@@ -18,7 +18,7 @@ const sequelize = new Sequelize(nconf.get('mysql:db'), nconf.get('mysql:uid'), n
   }
 });
 
-//sequelize.sync();
+sequelize.sync();
 
 module.exports = {
   Container: sequelize,

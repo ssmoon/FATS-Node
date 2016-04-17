@@ -1,5 +1,5 @@
 
-<div id="maincontainer">
+<div id="maincontainer" class='fullwidth'>
     <div class="page-header page-header-fix">
         <h3>{{ nodeName }}<small>{{ routineName }}</small></h3>
     </div>
@@ -7,7 +7,6 @@
     <input type='hidden' id='TchNodeID' value='{{ tchNode.Row_ID }}' />
     <input type='hidden' id='TchRoutineID' value='{{ tchNode.RoutineID }}' />  
     {{> tregister/EntrustCorpPayment (entrustCorpPaymentConverter itemList nodeIndex) }}
-    {{> tsupport/SubjectFiller subjects }}
 </div>
  
 {{> tsupport/Teaching1Navigator }}

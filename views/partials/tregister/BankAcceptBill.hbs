@@ -19,7 +19,7 @@
     
     {{#ifCond CurrStatus '==' 0}}
     <tr>
-        <td>{{ formateDate1 TimeMark }}</td>       
+        <td>{{ formatDate1 TimeMark }}</td>       
         <td>
             <div class="form-group checkarea">
                 <label class="sr-only"></label>
@@ -70,7 +70,7 @@
             </div>
         </td>
         <td>
-            {{ formateDate1 DrawBillDate }}
+            {{ formatDate1 DrawBillDate }}
         </td>      
         <td>
             {{ OpResult }}
@@ -78,7 +78,7 @@
     </tr>
     {{else}}
       <tr>
-        <td>{{ formateDate1 IncomeBillDate }}</td>       
+        <td>{{ formatDate1 IncomeBillDate }}</td>       
         <td>
             {{ RemitterName }}
         </td>
@@ -98,10 +98,10 @@
             {{ PayeeBank }}
         </td>
         <td>
-           {{ formateMoney MoneyAmount }}
+           {{ formatMoney MoneyAmount }}
         </td>
         <td>
-            {{ formateDate1 DrawBillDate }}
+            {{ formatDate1 DrawBillDate }}
         </td>      
         <td>
             {{ OpResult }}

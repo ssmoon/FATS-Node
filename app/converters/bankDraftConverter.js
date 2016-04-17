@@ -35,16 +35,12 @@ module.exports = function (items, stepIdx) {
         }
         case 7: {
             let target = new V_BankDraft();
-            map(items[0], target)
-                .forMember('RemitterBank', 'BankName')
-                .forMember('IncomeBillDate', 'ProxyDate');
+            map(items[0], target);
             return target;
         }
-        case 2: {
-            let target = new V_BusinessProxy();
-            map(items[0], target)
-                .forMember('RemitterBank', 'BankName')
-                .forMember('IncomeBillDate', 'ProxyDate');
+        case 12: {
+            let target = new V_IncomeBill();
+            map(items[0], target);
             return target;
         }
     }

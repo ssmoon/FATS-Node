@@ -20,7 +20,7 @@ var navigationT1Mng = {
       dataType: "json",
       success: function (result) {
         navigationT1Mng.navigationContext = result;
-
+  
         $("#navbar button[data-step=next]").bind("click", function () {
           if (navigationT1Mng.checkStatus == 0) {
             $(this).popover({ title: '提示', content: '请先点击检查按钮', placement: 'top', container: 'body' });
@@ -43,7 +43,7 @@ var navigationT1Mng = {
               $('#pop_WaitingDiag .modal-body').html("本案例已结束，即将返回首页..");
               $('#pop_WaitingDiag').modal('show');
               setTimeout(function () {
-                window.location = "/Home/Index";
+                window.location = "/";
               }, 1000);
             }
             else {
@@ -81,6 +81,7 @@ var navigationT1Mng = {
 
     $("button[data-step=check]").bind("click", function () {
       var isAllCorrect = true;
+ 
       $("input[data-correct]").each(function () {
         $(this).parent().removeClass("correct");
         $(this).parent().removeClass("incorrect");

@@ -1,9 +1,9 @@
 ﻿//转账支票
-module.exports = {
-    ChequeDate: '',
-    PayeeBank: '',
-    PayeeAcc: '',
-    RemitterName: '',
-    Purpose: '',
-    MoneyAmount: '',
+module.exports = function() {
+    this.ChequeDate = '';
+    this.PayeeBank = '';
+    this.PayeeAcc = '';
+    this.RemitterName = '';
+    this.Purpose = '';
+    this.MoneyAmount = '';
 }

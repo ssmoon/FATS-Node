@@ -2,6 +2,8 @@
 
 const express = require('express');
 const router = express.Router();
+const co = require('co');
+
 const dbContext = require('../../app/db-context');
 const teachingCache = require('../../app/cache/teaching-cache');
 const templateCache = require('../../app/cache/template-cache');

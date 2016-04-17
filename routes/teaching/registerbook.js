@@ -14,7 +14,7 @@ router.get('/:node/:id', function(req, res) {
   
   co(function *() {
       wrapper.itemList = yield dbContext[node].findAll({ where: { TchRoutineID: wrapper.tchNode.RoutineID } });
-      res.render('tspecial/' + node, wrapper);  
+      res.render('tregister/' + node, wrapper);  
   })
 });
 

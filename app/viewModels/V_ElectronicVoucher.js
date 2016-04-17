@@ -1,11 +1,11 @@
-﻿module.exports = {
-    RemitterName: '',
-    RemitterAcc: '',
-    RemitterBank: '',
-    PayeeName: '',
-    PayeeAcc: '',
-    PayeeBank: '',
-    BankName: '',
-    MoneyAmount: '',
-    TimeMark: '',
+﻿module.exports = function() {
+    this.RemitterName = '';
+    this.RemitterAcc = '';
+    this.RemitterBank = '';
+    this.PayeeName = '';
+    this.PayeeAcc = '';
+    this.PayeeBank = '';
+    this.BankName = '';
+    this.MoneyAmount = '';
+    this.TimeMark = '';
 }

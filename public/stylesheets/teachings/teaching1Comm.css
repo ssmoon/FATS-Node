@@ -34,7 +34,7 @@
 }
 
 #routineoverview .mainprocess { float: left; width: 300px; margin-left: 20px; }
-#routineoverview .arrowcontainer { float: left; width: 220px; min-height: 600px; background: url(/images/arrow_toright.png) no-repeat 12px -45px; }
+#routineoverview .arrowcontainer { float: left; width: 220px; min-height: 600px; background: url(/images/arrow_toright.png) no-repeat 12px -45px; margin-bottom: 100px;  }
 #routineoverview .currphase { float: left; width: 400px; min-height: 200px; position: relative; }
 #routineoverview .currphase p { font-size: 18px; color: #666666; margin: 20px 30px; }
 
@@ -50,8 +50,8 @@
 #maincontainer .titlecol { text-align: center; vertical-align: middle;  }
 #maincontainer .checkarea i { position: absolute; }
 #maincontainer .incorrect input { border-color: red;  }
-#maincontainer .incorrect i { display: block; color: red; top: 9px; right: 5px; }
-#maincontainer .correct i { display: block; color: green; top: 9px; right: 5px; }
+#maincontainer .incorrect i { display: block; color: red;  right: 5px; }
+#maincontainer .correct i { display: block; color: green;  right: 5px; }
 #maincontainer .checkarea { position: relative; }
 #maincontainer .savingtype label { font-weight: normal; margin: 0px 15px 0px 3px;  }
 .fullcontainer { margin-left: 0px !important; }
@@ -74,8 +74,10 @@
 #subjectcontainer .summary .hint { margin-left: 20px; color: #666666; }
 #subjectcontainer .alert { margin-top: 20px; }
 
-.noaction { padding: 15px; margin: 30px 0px; }
+#noaction { padding: 15px; margin: 30px 0px; }
 
 .billtitle { font-size: 18px; font-weight: normal; text-align: center; color: #414141; }
 .billtitle .bankname { font-size: 18px; margin-right: 20px;  font-weight: bold; }
 .billtime { text-align: center; color: #666666; }
+
+.fullwidth { margin-left: 0px !important; }

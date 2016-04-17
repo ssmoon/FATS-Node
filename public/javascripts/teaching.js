@@ -19,7 +19,7 @@ $(document).ready(function () {
     $("#routineoverview .arrowcontainer").css("background-position", "8px " + (groupRelativePos + 13) + "px");
     $("#routineoverview .currphase").css("top", (groupRelativePos == 0 ? 0 : (groupRelativePos - 20)) + "px");
     $("#routineoverview .group[data-node-id]").on("click", function () {
-      window.location = "/Teachings/CommonNode/Guide/" + $(this).attr("data-node-id");
+      window.location = "/Teaching/CommonNode/Guide/" + $(this).attr("data-node-id");
     })
     $("#routineoverview").on("click", "button[data-act=go]", function () {
       navigationT1Mng.goNextStep();
@@ -49,10 +49,16 @@ $(document).ready(function () {
     $("#fillerstepper").css("left", $(".maincont").offset().left);
     $("#fillerstepper").show();
     $("#fillerstepper a:first").click();
-
-    subjectFiller.initCtrls();
-    subjectFiller.initEvent();
   }
+  
+  if ($('#subjectfiller').length > 0) {
+    subjectFiller.initCtrls();
+    subjectFiller.initEvent(); 
+  }  
+  
+  if ($('#noaction').length > 0) {
+    navigationT1Mng.checkStatus = 1;
+  }  
 })
 
 var teachingPackMng = {};

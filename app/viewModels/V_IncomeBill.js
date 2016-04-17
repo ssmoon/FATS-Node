@@ -1,11 +1,11 @@
 ﻿//进账单
-module.exports = {
-    RemitterName: '',
-    RemitterAcc: '',
-    RemitterBank: '',
-    PayeeName: '',
-    PayeeAcc: '',
-    PayeeBank: '',
-    MoneyAmount: '',
-    IncomeBillDate: '',
+module.exports = function() {
+    this.RemitterName = '';
+    this.RemitterAcc = '';
+    this.RemitterBank = '';
+    this.PayeeName = '';
+    this.PayeeAcc = '';
+    this.PayeeBank = '';
+    this.MoneyAmount = '';
+    this.IncomeBillDate = '';
 }

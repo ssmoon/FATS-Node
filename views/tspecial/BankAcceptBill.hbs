@@ -12,6 +12,7 @@
         {{/case}}
         {{#case 9}}
             {{> tbill/CollectVoucher (bankAcceptBillConverter itemList nodeIndex) }}
+            {{> tsupport/NoAction }}
         {{/case}}
         {{#case 12}}
             {{> tbill/SpecialTransferVoucher (bankAcceptBillConverter itemList nodeIndex) }}

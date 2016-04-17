@@ -1,8 +1,8 @@
-<p class="bg-info noaction">
+<p class="bg-info" id='noaction'>
     本步不需要执行任何操作，请直接点击下方导航条右边的“下一步”以继续你的学习。
 </p>
 
-{{ #if this }}
+{{#if this}}
 <div id="fillerstepper">
     <div class="panel panel-info">
         <div class="panel-heading">待完成任务</div>
@@ -13,9 +13,4 @@
         </div>
     </div>
 </div>
-{{ /if }}
-<script>
-    $(document).ready(function () {
-        navigationT1Mng.checkStatus = 1;
-    })
-</script>
+{{/if}}

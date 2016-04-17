@@ -1,3 +1,5 @@
+const _ = require('lodash');
+
 module.exports = function (source, destination) {
     var sourceObj, desObj;
     var desKeys = _.keys(destination), functions;
@@ -26,6 +28,7 @@ module.exports = function (source, destination) {
         
         directSetVal: function(desKey, val) {
             desObj[desKey] = val
+            return functions;
         }
     };
     return functions;

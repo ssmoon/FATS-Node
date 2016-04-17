@@ -48,9 +48,10 @@ function n10_to_OuterSubject(obj) {
     let target = new V_CollectAccept_OuterSubject();
     map(obj, target)
         .forMember('RemitterBank', 'BankName')
-        .forMember('TimeMark', 'IncomeBillDate')
+        .forMember('IncomeBillDate', 'TimeMark')
         .forMember('DrawBillDate', 'AcceptDate')
         .forMember('IncomeBillDate', 'CollectDate')
+        .forMember('MoneyAmount', 'FinalAmount')
         .directSetVal('BillTitle', '托收承付登记簿')
         .directSetVal('OpResult', '待承付');
    return target;
@@ -60,9 +61,10 @@ function n26_to_OuterSubject(obj) {
     let target = new V_CollectAccept_OuterSubject();
     map(obj, target)
         .forMember('RemitterBank', 'BankName')
-        .forMember('TimeMark', 'DrawBillDate')
+        .forMember('DrawBillDate', 'TimeMark')
         .forMember('DrawBillDate', 'AcceptDate')
         .forMember('IncomeBillDate', 'CollectDate')
+        .directSetVal('FinalAmount', 0)
         .directSetVal('BillTitle', '托收承付登记簿')
         .directSetVal('OpResult', '已承付');
    return target;
@@ -97,13 +99,25 @@ module.exports = function (items, stepIdx) {
             return target;
         }
         case 17: {
+            let target = new V_SpecialTransferVoucher();
+            map(items[0], target)
+                .forMember('DrawBillDate', 'TimeMark')
+                .forMember('BillNo', 'OrgVoucherNo')
+                .forMember('MoneyAmount', 'OrgVoucherAmount')
+                .forMember('RemitterBank', 'BankName')
+                .directSetVal('OrgVoucherName', '银行承兑汇票')
+                .directSetVal('TransferOrient', '贷方')
+                .directSetVal('TransferReason', '扣收承兑汇票票款');
+            return target;
+        }
+        case 23: {
             let target = new V_ElectronicVoucher();
             map(items[0], target)
                 .forMember('DrawBillDate', 'TimeMark')
                 .forMember('RemitterBank', 'BankName');
             return target;
         }
-        /* register book converter */
+        /* register book converter */ 
         case 6: {            
             return n6_to_OuterSubject(items[0]);
         }

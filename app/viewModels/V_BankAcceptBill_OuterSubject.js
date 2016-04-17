@@ -1,17 +1,17 @@
-﻿module.exports = {
-    OuterSubject: '',
-    BankName: '',
-    MoneyAmount: '',
-    FinalAmount: '',
-    RemitterName: '',
-    RemitterAcc: '',
-    RemitterBank: '',
-    PayeeName: '',
-    PayeeAcc: '',
-    PayeeBank: '',
-    IncomeBillDate: '',
-    DrawBillDate: '',
-    OpResult: '',
-    CurrStatus: '',
-    TimeMark: ''
+﻿module.exports = function() {
+    this.OuterSubject = '';
+    this.BankName = '';
+    this.MoneyAmount = '';
+    this.FinalAmount = '';
+    this.RemitterName = '';
+    this.RemitterAcc = '';
+    this.RemitterBank = '';
+    this.PayeeName = '';
+    this.PayeeAcc = '';
+    this.PayeeBank = '';
+    this.IncomeBillDate = '';
+    this.DrawBillDate = '';
+    this.OpResult = '';
+    this.CurrStatus = '';
+    this.TimeMark = '';
 }

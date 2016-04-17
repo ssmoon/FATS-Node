@@ -41,10 +41,11 @@ class TeachingCache {
             self.routineHash[group.TchRoutineID].groupList = [];
           }
           
-          let nodeList = self.routineHash[group.TchRoutineID];
-          for (let i = 0; i <= nodeList.length - 1; i ++) {
-            if (nodeList[i].GroupIdx === group.GroupIdx) {
-              group.FirstNode = nodeList[i];
+          let belongRoutine = self.routineHash[group.TchRoutineID];
+          for (let i = 0; i <= belongRoutine.nodeList.length - 1; i ++) {
+            let relTmpNode = templateCache.getTemplateNode(belongRoutine.nodeHash[belongRoutine.nodeList[i]].TmpNodeID)
+            if (relTmpNode.GroupIdx === group.GroupIdx) {
+              group.FirstNodeID = belongRoutine.nodeList[i];
               break;
             }
           }
@@ -67,7 +68,7 @@ class TeachingCache {
   getNodeGroup(tchNodeID) {
     let tchNode = this.allNodeHash[tchNodeID];
     let groupIdx = templateCache.getTemplateNode(tchNode.TmpNodeID).GroupIdx;
-    return this.routineHash[tchNode.RoutineID].groupList[groupIdx];
+    return this.routineHash[tchNode.RoutineID].groupList[groupIdx - 1];
   }
   
   getAllGroup(tchRoutineID) {    
