@@ -71,7 +71,10 @@ function n17_to_OuterSubject(obj) {
 module.exports = function(items, stepIdx) {
     switch (stepIdx) {
         /* normal converter */
-        case 2: {
+        case 2:
+        case 5:
+        case 8:
+        case 14: {
             let target = new V_CollectVoucher();
             map(items[0], target);
             return target;

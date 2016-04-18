@@ -1,7 +1,7 @@
 <table class="table table-bordered table-condensed" cellspacing="8" style="margin: 20px 0px;">
     <tr>
         <td colspan="11">
-            <div class="billtitle">{{ this[this.length - 1].RemitterBank }} 托收承付登记薄</div>
+            <div class="billtitle">{{ this.0.RemitterBank }} 托收承付登记薄</div>
         </td>
     </tr>
     <tr class="titlecol">
@@ -17,7 +17,7 @@
     </tr>
 
     {{#each this }}
-       {{#ifcond @index '<=' (inc this.length -2) }}
+       {{#ifCond @index '<=' (inc this.length -2) }}
         <tr>
             <td>{{ formatDate1 TimeMark }}</td>
             <td>
@@ -45,62 +45,63 @@
                 {{ OpResult }}
             </td>
         </tr>
-       {{/ifcond}}
+       {{else}}
+        <tr>
+            <td>{{ formatDate1 TimeMark }}</td>
+            <td>
+                <div class="form-group checkarea">
+                    <label class="sr-only"></label>
+                    <input type="text" maxlength="20" placeholder="" data-correct="{{ formatMoney MoneyAmount }}" data-operror="" class="form-control" />
+                    <i class="form-control-feedback" />
+                </div>
+            </td>
+            <td>
+                <div class="form-group checkarea">
+                    <label class="sr-only"></label>
+                    <input type="text" maxlength="20" placeholder="" data-correct="{{ RemitterName }}" data-operror="" class="form-control" />
+                    <i class="form-control-feedback" />
+                </div>
+            </td>
+            <td>
+                <div class="form-group checkarea">
+                    <label class="sr-only"></label>
+                    <input type="text" maxlength="20" placeholder="" data-correct="{{ RemitterAcc }}" data-operror="" class="form-control" />
+                    <i class="form-control-feedback" />
+                </div>
+            </td>
+            <td>
+                <div class="form-group checkarea">
+                    <label class="sr-only"></label>
+                    <input type="text" maxlength="20" placeholder="" data-correct="{{ RemitterBank }}" data-operror="" class="form-control" />
+                    <i class="form-control-feedback" />
+                </div>
+            </td>
+            <td>
+                <div class="form-group checkarea">
+                    <label class="sr-only"></label>
+                    <input type="text" maxlength="20" placeholder="" data-correct="{{ PayeeName }}" data-operror="" class="form-control" />
+                    <i class="form-control-feedback" />
+                </div>
+            </td>      
+            <td>
+                <div class="form-group checkarea">
+                    <label class="sr-only"></label>
+                    <input type="text" maxlength="20" placeholder="" data-correct="{{ PayeeBank }}" data-operror="" class="form-control" />
+                    <i class="form-control-feedback" />
+                </div>
+            </td>
+            <td>
+                <div class="form-group checkarea">
+                    <label class="sr-only"></label>
+                    <input type="text" maxlength="20" placeholder="" data-correct="{{ formatMoney FinalAmount }}" data-operror="" class="form-control" />
+                    <i class="form-control-feedback" />
+                </div>
+            </td>      
+            <td>
+                {{ OpResult }}
+            </td>
+        </tr>
+       {{/ifCond}}
     {{/each}}
-    {{#with this[this.length - 1]}}
-    <tr>
-        <td>{{ formatDate1 TimeMark }}</td>
-        <td>
-            <div class="form-group checkarea">
-                <label class="sr-only"></label>
-                <input type="text" maxlength="20" placeholder="" data-correct="{{ formatMoney MoneyAmount }}" data-operror="" class="form-control" />
-                <i class="form-control-feedback" />
-            </div>
-        </td>
-        <td>
-            <div class="form-group checkarea">
-                <label class="sr-only"></label>
-                <input type="text" maxlength="20" placeholder="" data-correct="{{ RemitterName }}" data-operror="" class="form-control" />
-                <i class="form-control-feedback" />
-            </div>
-        </td>
-        <td>
-            <div class="form-group checkarea">
-                <label class="sr-only"></label>
-                <input type="text" maxlength="20" placeholder="" data-correct="{{ RemitterAcc }}" data-operror="" class="form-control" />
-                <i class="form-control-feedback" />
-            </div>
-        </td>
-        <td>
-            <div class="form-group checkarea">
-                <label class="sr-only"></label>
-                <input type="text" maxlength="20" placeholder="" data-correct="{{ RemitterBank }}" data-operror="" class="form-control" />
-                <i class="form-control-feedback" />
-            </div>
-        </td>
-        <td>
-            <div class="form-group checkarea">
-                <label class="sr-only"></label>
-                <input type="text" maxlength="20" placeholder="" data-correct="{{ PayeeName }}" data-operror="" class="form-control" />
-                <i class="form-control-feedback" />
-            </div>
-        </td>      
-        <td>
-            <div class="form-group checkarea">
-                <label class="sr-only"></label>
-                <input type="text" maxlength="20" placeholder="" data-correct="{{ PayeeBank }}" data-operror="" class="form-control" />
-                <i class="form-control-feedback" />
-            </div>
-        </td>
-        <td>
-            <div class="form-group checkarea">
-                <label class="sr-only"></label>
-                <input type="text" maxlength="20" placeholder="" data-correct="{{ formatMoney FinalAmount }}" data-operror="" class="form-control" />
-                <i class="form-control-feedback" />
-            </div>
-        </td>      
-        <td>
-            {{ OpResult }}
-        </td>
-    </tr>
+ 
 </table>

@@ -26,31 +26,31 @@ const map = require('./map');
 
 module.exports = function(items, routineTag) {
      switch (routineTag) {
-        case 'DWHQ_Deposit': {
+        case 'DWHQ_Withdraw': {
             let target = new V_IndividualWithdraw();
             map(items[0], target)
                 .directSetVal('DepositType', '活期');
             return target;
         }
-        case 'DWZZ_Deposit': {
+        case 'DWZZ_Withdraw': {
             let target = new V_IndividualWithdraw();
             map(items[0], target)
                 .directSetVal('DepositType', '整整');
             return target;
         }
-        case 'DWLZ_Deposit': {
+        case 'DWLZ_Withdraw': {
             let target = new V_IndividualWithdraw();
             map(items[0], target)
                 .directSetVal('DepositType', '零整');
             return target;
         }
-        case 'DWZL_Deposit': {
+        case 'DWZL_Withdraw': {
             let target = new V_IndividualWithdraw();
             map(items[0], target)
                 .directSetVal('DepositType', '整零');
             return target;
         }
-        case 'DWTI_Deposit': {
+        case 'DWTI_Withdraw': {
             let target = new V_IndividualWithdraw();
             map(items[0], target)
                 .directSetVal('DepositType', '本息');

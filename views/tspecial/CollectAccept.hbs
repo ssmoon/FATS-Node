@@ -1,4 +1,4 @@
-﻿<div id="maincontainer" {{#ifCond nodeIndex '==' 2}}class='fullwidth'{{/ifCond}}>
+﻿<div id="maincontainer" {{#ifCond nodeIndex '==' 2}}class='fullwidth'{{/ifCond}}  {{#ifCond nodeIndex '==' 5}}class='fullwidth'{{/ifCond}}>
     <div class="page-header page-header-fix">
         <h3>{{ nodeName }}<small>{{ routineName }}</small></h3>
     </div>
@@ -11,7 +11,7 @@
             {{> tsupport/NoAction false}}
         {{/case}}
         {{#case 5}}
-        
+            {{> tsupport/NoAction false}}
         {{/case}}
         {{#case 8}}           
             {{> tsupport/SubjectFiller subjects }}

@@ -16,11 +16,11 @@
     <div class="page-header page-header-fix">
         <h3>{{ nodeName }}<small>{{ routineName }}</small></h3>
     </div>
-    {{> tsupport/CaseDescription groupText }}
+    {{> tsupport/CaseDescription groupText}}
     <input type='hidden' id='TchNodeID' value='{{ tchNode.Row_ID }}' />
     <input type='hidden' id='TchRoutineID' value='{{ tchNode.RoutineID }}' />  
     <div id="subjectcontainer" class="tabcontent">
-        {{#each this.itemList }}        
+        {{#each itemList}}        
             <div data-subject="现金日记账条目">                
                 <table class="table table-bordered table-condensed" cellspacing="8">
                     <thead>
@@ -31,7 +31,7 @@
                             <td class="date" style="width: 100px;">日期</td>
                             <td class="clientacc"style="width: 150px;">客户账号</td>
                             <td class="subject">对方科目</td>
-                            <td class="amount">金额</td>\
+                            <td class="amount">金额</td>
                             <td class="voucherno">凭证号</td>
                         </tr>                     
                     </thead>
@@ -76,8 +76,8 @@
                     </tbody>
                 </table>
             </div>
-        {{ /each }}
-        {{> tsupport/Teaching1Responsor }} 
+        {{/each}}
+        {{> tsupport/Teaching1Responsor}} 
     </div>
  
 </div>

@@ -7,20 +7,20 @@
     </tr>
     <tr>
         <td colspan="7">
-            {{ formatDate1 WithdrawTime  }}
+            {{formatDate1 WithdrawTime}}
         </td>
     </tr>
     <tr>
-        <td class="verticalcol" rowspan="4">储户填写</td>
+        <td class="verticalcol" rowspan="5">储户填写</td>
         <td colspan="6" class="savingtype">
-            <input type="radio" disabled="disabled" @(Model.WithdrawType == "活期" ? "checked='checked'" : "") /><label>活期</label>
+            <input type="radio" disabled="disabled" {{#ifCond DepositType '==' '活期'}} checked='checked'{{/ifCond}} /><label>活期</label>
             <input type="radio" disabled="disabled" /><label>储蓄卡</label>
-            <input type="radio" disabled="disabled" @(Model.WithdrawType == "整整" ? "checked='checked'" : "") /><label>整整</label>
-            <input type="radio" disabled="disabled" @(Model.WithdrawType == "零整" ? "checked='checked'" : "") /><label>零整</label>
-            <input type="radio" disabled="disabled" @(Model.WithdrawType == "整零" ? "checked='checked'" : "") " /><label>整零</label>
+            <input type="radio" disabled="disabled" {{#ifCond DepositType '==' '整整'}} checked='checked'{{/ifCond}} /><label>整整</label>
+            <input type="radio" disabled="disabled" {{#ifCond DepositType '==' '零整'}} checked='checked'{{/ifCond}} /><label>零整</label>
+            <input type="radio" disabled="disabled" {{#ifCond DepositType '==' '整零'}} checked='checked'{{/ifCond}} /><label>整零</label>
             <input type="radio" disabled="disabled" /><label>定活</label>
             <input type="radio" disabled="disabled" /><label>教育</label>
-            <input type="radio" disabled="disabled" @(Model.WithdrawType == "存本" ? "checked='checked'" : "") /><label>存本</label>
+            <input type="radio" disabled="disabled" {{#ifCond DepositType '==' '存本'}} checked='checked'{{/ifCond}} /><label>存本</label>
             <input type="radio" disabled="disabled" /><label>其它</label>
         </td>       
     </tr>
@@ -54,7 +54,7 @@
             &nbsp;
         </td>
         <td colspan="2">
-            金额: {{ formatMoney EntryAmount }}
+            金额: {{formatMoney EntryAmount}}
         </td>
     </tr>  
 </table>
