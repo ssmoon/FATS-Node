@@ -13,6 +13,9 @@ const individualDepositConverter = require('./converters/individualDepositConver
 const individualWithdrawConverter = require('./converters/individualWithdrawConverter');
 const interestVoucherConverter = require('./converters/interestVoucherConverter');
 const moneyRemittanceConverter = require('./converters/moneyRemittanceConverter');
+const unitSavingConverter = require('./converters/unitSavingConverter');
+const loanConverter = require('./converters/loanConverter');
+const discountingConverter = require('./converters/discountingConverter');
 
 module.exports = function (exphbs) {
   return  exphbs.create({
@@ -129,6 +132,15 @@ module.exports = function (exphbs) {
       },
       moneyRemittanceConverter: function(items, stepIdx) {
           return moneyRemittanceConverter(items, stepIdx)
+      },
+      unitSavingConverter: function(items, routineTag) {
+          return unitSavingConverter(items, routineTag)
+      },
+      discountingConverter: function(items, stepIdx) {
+          return discountingConverter(items, stepIdx)
+      },
+      loanConverter: function(items, stepIdx) {
+          return loanConverter(items, stepIdx)
       }
     }
   });

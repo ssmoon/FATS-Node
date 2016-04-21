@@ -32,6 +32,12 @@ module.exports = function(items, routineTag) {
                 .directSetVal('DepositType', '活期');
             return target;
         }
+        case 'DWHQ_Clear': {
+            let target = new V_IndividualWithdraw();
+            map(items[0], target)
+                .directSetVal('DepositType', '活期');
+            return target;
+        }
         case 'DWZZ_Withdraw': {
             let target = new V_IndividualWithdraw();
             map(items[0], target)
@@ -56,5 +62,12 @@ module.exports = function(items, routineTag) {
                 .directSetVal('DepositType', '本息');
             return target;
         }
+        case 'DWZL_Interest': {
+            let target = new V_IndividualWithdraw();
+            map(items[0], target)
+                .directSetVal('DepositType', '整零');
+            return target;
+        }    
+ 
     }
 }

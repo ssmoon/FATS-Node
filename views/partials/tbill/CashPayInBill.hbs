@@ -2,15 +2,15 @@
 <table class="table table-bordered table-condensed" cellspacing="8" style="margin: 20px 0px;">
     <tr>
         <td colspan="6">
-            <div class="billtitle"><span class="bankname">{{ BankName }}</span>还贷凭证</div>
+            <div class="billtitle"><span class="bankname">{{ BankName }}</span>现金缴款单</div>
         </td>
     </tr>
     <tr>
-        <td colspan="6">
+        <td colspan="6" class='center'>
             {{ formatDate1 TimeMark }}
         </td>
     </tr>
-    <tr>
+    <tr> 
         <td class="titlecol">收款人户名</td>
         <td colspan="3">{{ ClientName }}</td>
     </tr>
@@ -22,13 +22,13 @@
     </tr>
     <tr>
         <td class="titlecol">缴款人</td>
-        <td>{{ PayInMan }}</td>
+        <td>张强</td>
         <td class="titlecol">款项来源</td>
         <td>{{ MoneySource }}</td>
     </tr>
     <tr>
         <td class="titlecol">金额</td>
-        <td colspan="3">{{ formatMoney EntryAmount }}</td>
+        <td colspan="3">{{formatMoney EntryAmount}}</td>
     </tr>
 
 </table>

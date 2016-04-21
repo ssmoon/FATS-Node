@@ -24,19 +24,13 @@ const V_UnitWithdrawVoucher = require('../viewModels/V_UnitWithdrawVoucher');
 
 const map = require('./map');
 
-module.exports = function(items, routineTag) {
-     switch (routineTag) {
-        case 'DWHQ_Interest': {
-            let target = new V_InterestVoucher();
+module.exports = function(items, stepIdx) {
+    switch (stepIdx) {
+        case 2: {
+            let target = new V_CashPayInBill();
             map(items[0], target)
-                .directSetVal('Abstract', '结息');
+                .forMember('RemitterBank', 'BankName');
             return target;
-        }
-        case 'DWTI_Interest': {
-            let target = new V_InterestVoucher();
-            map(items[0], target)
-                .directSetVal('Abstract', '结息');
-            return target;
-        }
+        }      
     }
 }
