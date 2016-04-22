@@ -38,7 +38,10 @@ module.exports = function(items, routineTag, subStep) {
         }  
         case 'CMHQ~Interest': {
             let target = new V_InterestVoucher();
-            map(items[0], target);
+            map(items[0], target)
+            .forMember('ClientName', 'InterestClient')
+            .forMember('TimeMark', 'InterestTime')
+            .directSetVal('Abstract', '结息')
             return target;
         } 
         case 'CMDQ~Deposit': {
