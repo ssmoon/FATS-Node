@@ -6,7 +6,7 @@
         </td>
     </tr>
     <tr>
-        <td colspan="6" class='center'>
+        <td class="titlecol" colspan="6" class='center'>
             {{ formatDate3 IncomeBillDate }}
         </td>
     </tr>
@@ -31,8 +31,11 @@
         <td>{{ RemitterBank }}</td>
     </tr>
     <tr>
-        <td colspan="6">
-            金额: {{ formatMoney MoneyAmount }}
+        <td class="titlecol">
+            金额
+        </td>
+        <td colspan="5">
+             {{ formatMoney MoneyAmount }}
         </td>
     </tr>
     <tr>

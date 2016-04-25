@@ -17,7 +17,8 @@
             {{> tbill/InterestVoucher (unitSavingConverter itemList routineTag) }}
         {{/case}}
         {{#case 'CMDQ~Deposit'}}
-            {{> tbill/CashCheck (unitSavingConverter itemList routineTag) }}
+            {{> tbill/IncomeBill (unitSavingConverter itemList routineTag 1) }}
+            {{> tbill/TransferCheck (unitSavingConverter itemList routineTag 2) }}
         {{/case}}
         {{#case 'CMDQ~Interest'}}
             {{> tbill/CashCheck (unitSavingConverter itemList routineTag) }}

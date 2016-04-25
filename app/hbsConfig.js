@@ -133,8 +133,8 @@ module.exports = function (exphbs) {
       moneyRemittanceConverter: function(items, stepIdx) {
           return moneyRemittanceConverter(items, stepIdx)
       },
-      unitSavingConverter: function(items, routineTag) {
-          return unitSavingConverter(items, routineTag)
+      unitSavingConverter: function(items, routineTag, subStep) {
+          return unitSavingConverter(items, routineTag, subStep)
       },
       discountingConverter: function(items, stepIdx) {
           return discountingConverter(items, stepIdx)

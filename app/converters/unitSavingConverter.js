@@ -39,21 +39,35 @@ module.exports = function(items, routineTag, subStep) {
         case 'CMHQ~Interest': {
             let target = new V_InterestVoucher();
             map(items[0], target)
-            .forMember('ClientName', 'InterestClient')
-            .forMember('TimeMark', 'InterestTime')
-            .directSetVal('Abstract', '结息')
+                .forMember('ClientName', 'InterestClient')
+                .forMember('TimeMark', 'InterestTime')
+                .directSetVal('Abstract', '结息');
             return target;
         } 
         case 'CMDQ~Deposit': {
             switch (subStep) {
                 case 1: {
                     let target = new V_IncomeBill();
-                    map(items[0], target);
+                    map(items[0], target)
+                        .forMember('EntryAmount', 'MoneyAmount')
+                        .forMember('TimeMark', 'IncomeBillDate')
+                        .forMember('BankName', 'PayeeBank')
+                        .forMember('ClientAcc', 'PayeeAcc')
+                        .forMember('ClientName', 'PayeeName')
+                        .forMember('ClientName', 'RemitterName')                        
+                        .forMember('BankName', 'RemitterBank')
+                        .directSetVal('RemitterAcc', '001800101000116'); //案例中没有给出定期账户账号
                     return target;
                 }      
                 case 2: {
                     let target = new V_TransferCheck();
-                    map(items[0], target);
+                    map(items[0], target)
+                        .forMember('EntryAmount', 'MoneyAmount')
+                        .forMember('BankName', 'PayeeBank')
+                        .forMember('ClientName', 'RemitterName')
+                        .forMember('ClientAcc', 'PayeeAcc')
+                        .forMember('TimeMark', 'ChequeDate')
+                        .directSetVal('Purpose', '转存定期');
                     return target;
                 }
             }   
@@ -70,13 +84,11 @@ module.exports = function(items, routineTag, subStep) {
                     let target = new V_UnitWithdrawVoucher();
                     map(items[0], target);
                     return target;
-                    break;
                 }
                 case 2: {
                     let target = new V_InterestSummons();
                     map(items[0], target);
                     return target;
-                    break;
                 }
             }
             break;            
