@@ -25,7 +25,7 @@ const V_Loan_OuterSubject = require('../viewModels/V_Loan_OuterSubject');
 
 const map = require('./map');
 
-module.exports = function(items, routineTag, subStep, srcType) {
+module.exports = function(items, routineTag, srcType) {
     switch (routineTag) {
         case 'MortgageLoan~Grant': {
             switch (srcType) {
