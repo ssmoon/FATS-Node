@@ -21,16 +21,60 @@ const V_SpecialTransferVoucher = require('../viewModels/V_SpecialTransferVoucher
 const V_TradeAcceptance = require('../viewModels/V_TradeAcceptance');
 const V_TransferCheck = require('../viewModels/V_TransferCheck');
 const V_UnitWithdrawVoucher = require('../viewModels/V_UnitWithdrawVoucher');
+const V_Loan_OuterSubject = require('../viewModels/V_Loan_OuterSubject');
 
 const map = require('./map');
 
-module.exports = function(items, stepIdx) {
-    switch (stepIdx) {
-        case 2: {
-            let target = new V_CashPayInBill();
-            map(items[0], target)
-                .forMember('RemitterBank', 'BankName');
-            return target;
+module.exports = function(items, routineTag, subStep, srcType) {
+    switch (routineTag) {
+        case 'MortgageLoan~Grant': {
+            switch (srcType) {
+                case 'register': {
+                    let target = new V_Loan_OuterSubject();
+                    map(items[0], target)
+                        .forMember('LoanDate', 'TimeMark')
+                        .forMember('ClientAcc', 'ClientAcc')
+                        .directSetVal('SubjectName', '待处理抵押物表外科目')
+                        .directSetVal('OpResult', '发放抵押贷款');
+                    return target;   
+                }
+                case 'special': {
+                    let target = new V_LoanVoucher();
+                    map(items[0], target);
+                    return target;       
+                }
+            }            
         }      
+        case 'MortgageLoan~Revoke': {
+            switch (srcType) {
+                case 'register': {
+                    let target = new V_Loan_OuterSubject();
+                    map(items[0], target)
+                        .forMember('RepayDate', 'TimeMark')
+                        .forMember('RepayAcc', 'ClientAcc')
+                        .directSetVal('SubjectName', '待处理抵押物表外科目')
+                        .directSetVal('OpResult', '发放抵押贷款');
+                    return target;   
+                }
+                case 'special': {
+                    let target = new V_LoanVoucher();
+                    map(items[0], target);
+                    return target;       
+                }
+            }        
+        }  
+        case 'CreditLoan~Grant': {
+            let target = new V_InterestVoucher();
+            map(items[0], target)
+                .forMember('ClientName', 'InterestClient')
+                .forMember('TimeMark', 'InterestTime')
+                .directSetVal('Abstract', '结息');
+            return target;
+        }  
+        case 'CreditLoan~Revoke': {
+            let target = new V_CashCheck();
+            map(items[0], target);
+            return target;
+        }          
     }
 }

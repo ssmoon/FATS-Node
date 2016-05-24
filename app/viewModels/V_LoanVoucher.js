@@ -2,8 +2,6 @@
     this.ClientName = '';
     this.BankName = '';
     this.MoneyAmount = '';
-    this.TchRoutineID = '';
-    this.TchRoutineTag = '';
     this.Purpose = '';
     this.LoanDate = '';
     this.RepayDate = '';

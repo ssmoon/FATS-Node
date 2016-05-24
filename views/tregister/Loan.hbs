@@ -1,0 +1,20 @@
+
+<div id="maincontainer" class='fullwidth'>
+    <div class="page-header page-header-fix">
+        <h3>{{ nodeName }}<small>{{ routineName }}</small></h3>
+    </div>
+    {{> tsupport/CaseDescription groupText }}
+    <input type='hidden' id='TchNodeID' value='{{ tchNode.Row_ID }}' />
+    <input type='hidden' id='TchRoutineID' value='{{ tchNode.RoutineID }}' />  
+    {{#switch routineTag}}
+        {{#case 'MortgageLoan~Grant'}}
+            {{> tregister/Loan (loanConverter itemList routineTag 'register') }}
+        {{/case}}
+        {{#case 'MortgageLoan~Revoke'}}
+            {{> tregister/Loan (loanConverter itemList routineTag 'register') }}
+        {{/case}}  
+    {{/switch}}
+</div>
+ 
+{{> tsupport/Teaching1Navigator }}
+

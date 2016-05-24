@@ -139,8 +139,8 @@ module.exports = function (exphbs) {
       discountingConverter: function(items, stepIdx) {
           return discountingConverter(items, stepIdx)
       },
-      loanConverter: function(items, stepIdx) {
-          return loanConverter(items, stepIdx)
+      loanConverter: function(items, routineTag, subStep, srcType) {
+          return loanConverter(items, routineTag, subStep, srcType)
       }
     }
   });

@@ -1,5 +1,5 @@
 ﻿module.exports = function() {
-    RemitterName = '';
+    this.RemitterName = '';
     this.RemitterAcc = '';
     this.RemitterBank = '';
     this.PayeeName = '';

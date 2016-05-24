@@ -7,6 +7,7 @@ var navigationT1Mng = {
     $('#pop_WaitingDiag .modal-body').html("正在转到下一训练环节..");
     $('#pop_WaitingDiag').modal('show');
     setTimeout(function () {
+      console.log( "/Teaching/" + navigationT1Mng.navigationContext.NextTchNodeType + "/" + navigationT1Mng.navigationContext.NextTchNodeTag + "/" + navigationT1Mng.navigationContext.NextTchNodeID);
       window.location = "/Teaching/" + navigationT1Mng.navigationContext.NextTchNodeType + "/" + navigationT1Mng.navigationContext.NextTchNodeTag + "/" + navigationT1Mng.navigationContext.NextTchNodeID;
     }, 500);
   },
