@@ -6,7 +6,7 @@
     </tr>
     <tr>
         <td colspan="6" class='center'>
-            {{ formatDate3 TimeMark }}
+            {{formatDate3 TimeMark}}
         </td>
     </tr>
     <tr>
@@ -19,13 +19,13 @@
     </tr>
     <tr>
         <td class="titlecol">出票日</td>
-        <td>{{ formatDate1 DraftDate }}</td>
+        <td>{{formatDate1 DraftDate}}</td>
         <td class="titlecol">账号</td>
-        <td>{{ ClientAcc</td>
+        <td>{{ ClientAcc }}</td>
     </tr>
     <tr>
         <td class="titlecol">到期日</td>
-        <td>{{ formatDate1 DueDate }}</td>
+        <td>{{formatDate1 DueDate}}</td>
         <td class="titlecol">开户银行</td>
         <td>&nbsp;</td>
     </tr>
@@ -37,18 +37,18 @@
     </tr>
     <tr>
         <td class="titlecol" colspan="2">汇票金额</td>
-        <td colspan="4">{{ formatMoney EntryAmount }}</td>      
+        <td colspan="4">{{formatMoney EntryAmount}}</td>      
     </tr>
     <tr>
         <td colspan="6">
-            <table>
+            <table class="table table-bordered table-condensed" >
                 <tr>
                     <td>贴现率</td>
                     <td>{{ DiscountRate }}</td>
                     <td>贴现利息</td>
-                    <td>{{ formatMoneyModel.DiscountInterest }}</td>
+                    <td>{{formatMoney DiscountInterest}}</td>
                     <td>实付贴现金额</td>
-                    <td>{{ formatMoneyModel.DiscountAmount }}</td>
+                    <td>{{formatMoney DiscountAmount}}</td>
                 </tr>
             </table>
         </td>

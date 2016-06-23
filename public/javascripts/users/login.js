@@ -1,4 +1,6 @@
-﻿$(document).ready(function () {
+﻿var siteUtils = require('../SiteShared');
+
+$(document).ready(function () {
     $("#loginarea button[data-act='goreg']").on("click", function () {
         window.location = "/User/Register";
     })
@@ -26,19 +28,13 @@
             data: JSON.stringify(dataCarrier),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            success: function (result) {
-                if (result == "") {
-                    window.location = "/Teachings/TeachingInit/T1Init";
-                }
-                else 
-                {
-                    siteUtils.showSaveEnd($("#loginarea button[data-act=login]"));
-                    $("#loginarea .alert").fadeIn();
-                    $("#loginarea .alert").html(result);
-                }
+            success: function () {                
+                window.location = "/Teaching/Navigator/Select";                
             },
             error: function (e) {
-               
+                $("#loginarea .alert").fadeIn();
+                $("#loginarea .alert").html(e.responseText);
+                siteUtils.showSaveEnd($("#loginarea button[data-act=login]"));
             }
         });
     })

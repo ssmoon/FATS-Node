@@ -81,3 +81,7 @@
 .billtime { text-align: center; color: #666666; }
 
 .fullwidth { margin-left: 0px !important; }
+.metadata { margin-right: 30px; font-size: 15px; }
+
+#sf7 .form-control-static { padding: 0px;  }
+#sf7 .form-group { margin-bottom: 10px; height: 30px;  } 

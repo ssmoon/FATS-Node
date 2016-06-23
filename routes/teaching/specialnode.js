@@ -19,6 +19,9 @@ router.get('/:node/:id', function(req, res) {
         dbAlias = 'IndividualSaving';
       if (_.startsWith(dbAlias, 'InterestVoucher'))
         dbAlias = 'IndividualSaving';
+
+      if (dbAlias.indexOf('TransferCheck') >= 0)
+        dbAlias = 'TransferCheck';
  
       wrapper.itemList = yield dbContext[dbAlias].findAll({ where: { TchRoutineID: wrapper.tchNode.RoutineID } });
       wrapper.subjects = yield dbContext.SubjectItem.findAll({

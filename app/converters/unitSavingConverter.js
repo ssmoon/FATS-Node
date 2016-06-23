@@ -74,18 +74,24 @@ module.exports = function(items, routineTag, subStep) {
             break;         
         } 
          case 'CMDQ~Interest': {
-            let target = new V_SpecialTransferVoucher();
-            map(items[0], target);
+            let target = new V_TransferCheck();
+            map(items[0], target)
+                .forMember('TimeMark', 'ChequeDate')
+                .forMember('BankName', 'PayeeBank')
+                .forMember('ClientAcc', 'PayeeAcc')
+                .forMember('ClientName', 'RemitterName')
+                .forMember('InterestAmount', 'MoneyAmount');
             return target;
         } 
         case 'CMDQ~Withdraw': {
+            console.log(subStep);
             switch (subStep) {
-                case 1: {
+                case 2: {
                     let target = new V_UnitWithdrawVoucher();
                     map(items[0], target);
                     return target;
                 }
-                case 2: {
+                case 3: {
                     let target = new V_InterestSummons();
                     map(items[0], target);
                     return target;

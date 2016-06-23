@@ -4,8 +4,7 @@ var webpack = require('webpack');
 module.exports = {
   cache: true,
   entry: {
-    teaching: path.resolve(__dirname, 'public', 'javascripts', 'teaching.js'),
-    setting: path.resolve(__dirname, 'public', 'javascripts', 'setting.js')
+    teaching: path.resolve(__dirname, 'public', 'javascripts', 'teaching.js')
   },
   output: {
     path: path.join(__dirname, 'public', 'dist'),

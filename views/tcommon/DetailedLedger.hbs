@@ -3,7 +3,7 @@
         <div class="panel-heading">待完成的科目</div>
         <div class="list-group">
             {{#each itemList}}            
-                <a href="#" data-status="0" class="list-group-item" data-subject="{{ SubjectName }}">
+                <a href="#" data-status="0" class="list-group-item" data-subject="{{ SubjectName }}"  data-index="{{@index}}">
                     <span class="glyphicon glyphicon-question-sign"></span>
                     {{ SubjectName }}
                 </a>
@@ -21,7 +21,7 @@
     <input type='hidden' id='TchRoutineID' value='{{ tchNode.RoutineID }}' />  
     <div id="subjectcontainer" class="tabcontent">
         {{#each itemList }}
-            <div data-subject="{{ SubjectName }}">
+            <div data-subject="{{ SubjectName }}" data-index="{{@index}}">
                <div class="summary">
                     当前科目: <span class="curr">{{ SubjectName }}</span>  <span class="hint">(点击左边的科目列表以完成其它的待记账科目)</span>
                </div>

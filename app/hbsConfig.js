@@ -136,8 +136,8 @@ module.exports = function (exphbs) {
       unitSavingConverter: function(items, routineTag, subStep) {
           return unitSavingConverter(items, routineTag, subStep)
       },
-      discountingConverter: function(items, stepIdx) {
-          return discountingConverter(items, stepIdx)
+      discountingConverter: function(items, routineTag) {
+          return discountingConverter(items, routineTag)
       },
       loanConverter: function(items, routineTag, srcType) {
           return loanConverter(items, routineTag, srcType)

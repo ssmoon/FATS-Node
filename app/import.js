@@ -19,6 +19,7 @@ module.exports = {
         let sGeneralLedger = XLSX.utils.sheet_to_json(workbook.Sheets['总账']);
         let sOuterSubject = XLSX.utils.sheet_to_json(workbook.Sheets['表外科目']);
         
+        let sDebitTransferCheck = XLSX.utils.sheet_to_json(workbook.Sheets['跨行借记支票']);
         let sBankDraft = XLSX.utils.sheet_to_json(workbook.Sheets['银行汇票']);
         let sBankAcceptBill = XLSX.utils.sheet_to_json(workbook.Sheets['银行承兑汇票']);
         let sMoneyRemittance = XLSX.utils.sheet_to_json(workbook.Sheets['汇兑']);
@@ -27,7 +28,7 @@ module.exports = {
         let sEntrustBankPayment = XLSX.utils.sheet_to_json(workbook.Sheets['委托收款-银行']);
        
         co(function *() {
-            let idStr = "(''2'', ''3'', ''4'', ''5'', ''6'', ''7'')";
+            let idStr = "(''1'', ''2'', ''3'', ''4'', ''5'', ''6'', ''7'')";
             yield dbContext.Container.query("CALL DelTestRoutine('" + idStr + "');");   
                    
             let tmpRoutineList = sRoutine.map((item) => {
@@ -294,6 +295,25 @@ module.exports = {
                     CollectDate: n.托收日期,
                     AcceptDate: n.承付期满日,
                     SettlementNo: n.结算号,
+                }
+            }))
+
+            yield dbContext.TransferCheck.bulkCreate(sDebitTransferCheck.map((n) => {
+                let tchRoutineID = teachingRList.find((r) => { return r.TmpRoutineID == n.流程 }).Row_ID;
+                return {
+                    TchRoutineID: tchRoutineID,
+                    TchRoutineTag: '',                
+                    RemitterName: n.收款人名称,
+                    RemitterAcc: n.收款人账号,
+                    RemitterBank: n.收款方银行,
+                    PayeeName: n.付款人名称,
+                    PayeeAcc: n.付款人账号,
+                    PayeeBank: n.付款方银行,
+                    MoneyAmount: n.金额,
+                    Purpose: n.目的,                                        
+                    ChequeDate: n.支票日期,
+                    IncomeBillDate: n.进账单日期,
+                    CheckNo: n.支票号,
                 }
             }))
             
@@ -835,7 +855,8 @@ module.exports = {
                     TchRoutineID: tchRoutineID,
                     TchRoutineTag: '',               
                     TimeMark: n.日期,
-                    ClientAcc: n.单位名称,
+                    ClientName: n.单位名称,
+                    ClientAcc: n.账号,
                     BankName: n.银行名称,
                     EntryAmount: n.汇票金额,
                     DiscountInterest: n.贴现利息,

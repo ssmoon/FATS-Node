@@ -11,6 +11,4 @@ module.exports = {
         wrapper.iTotalDisplayRecords = dataList.length;
         return wrapper;
     }
-
-    
 }

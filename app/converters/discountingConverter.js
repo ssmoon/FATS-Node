@@ -24,13 +24,19 @@ const V_UnitWithdrawVoucher = require('../viewModels/V_UnitWithdrawVoucher');
 
 const map = require('./map');
 
-module.exports = function(items, stepIdx) {
-    switch (stepIdx) {
-        case 2: {
-            let target = new V_CashPayInBill();
-            map(items[0], target)
-                .forMember('RemitterBank', 'BankName');
+module.exports = function (items, routineTag) {
+    switch (routineTag) {
+        case 'Discount~Grant': {
+            console.log(items[0]);
+            let target = new V_DiscountingVoucher();
+            map(items[0], target);
+            console.log(target);
             return target;
-        }      
+        }
+        case 'Discount~Revoke': {
+            let target = new V_DiscountingVoucher();
+            map(items[0], target);
+            return target;
+        }
     }
 }

@@ -33,7 +33,8 @@ module.exports = function(items, routineTag, srcType) {
                     let target = new V_Loan_OuterSubject();
                     map(items[0], target)
                         .forMember('LoanDate', 'TimeMark')
-                        .forMember('ClientAcc', 'ClientAcc')
+                        .forMember('LoanAcc', 'ClientAcc')
+                        .forMember('ClientName', 'ClientName')
                         .directSetVal('SubjectName', '待处理抵押物表外科目')
                         .directSetVal('OpResult', '发放抵押贷款');
                     return target;   
@@ -52,8 +53,9 @@ module.exports = function(items, routineTag, srcType) {
                     map(items[0], target)
                         .forMember('RepayDate', 'TimeMark')
                         .forMember('RepayAcc', 'ClientAcc')
+                        .forMember('ClientName', 'ClientName')
                         .directSetVal('SubjectName', '待处理抵押物表外科目')
-                        .directSetVal('OpResult', '发放抵押贷款');
+                        .directSetVal('OpResult', '收回抵押贷款');
                     return target;   
                 }
                 case 'special': {
@@ -64,17 +66,14 @@ module.exports = function(items, routineTag, srcType) {
             }        
         }  
         case 'CreditLoan~Grant': {
-            let target = new V_InterestVoucher();
-            map(items[0], target)
-                .forMember('ClientName', 'InterestClient')
-                .forMember('TimeMark', 'InterestTime')
-                .directSetVal('Abstract', '结息');
-            return target;
+            let target = new V_LoanVoucher();
+                    map(items[0], target);
+                    return target;   
         }  
         case 'CreditLoan~Revoke': {
-            let target = new V_CashCheck();
-            map(items[0], target);
-            return target;
+            let target = new V_LoanVoucher();
+                    map(items[0], target);
+                    return target;       
         }          
     }
 }

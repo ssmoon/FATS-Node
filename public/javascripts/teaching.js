@@ -7,6 +7,8 @@ require('../stylesheets/teachings/teaching1Comm.css');
 require('../stylesheets/teachings/subjectFiller.css');
 require("script!./shared/datatables.js");
 
+var loginMng = require('./users/login');
+var registerMgr = require('./users/register');
 var navigationT1Mng = require('./teachings/teaching1Comm');
 var caseSelectionMgr = require('./teachings/selectT1Case');
 var subjectFiller = require('./teachings/subjectFiller')
@@ -39,6 +41,26 @@ $(document).ready(function () {
   }
 
   if ($("#fillerstepper").length > 0) {
+    var uniqueSubjectObj = {};
+    $("#fillerstepper a[data-index]").each(function() {
+      if (uniqueSubjectObj.hasOwnProperty($(this).attr("data-subject")))
+        uniqueSubjectObj[$(this).attr("data-subject")].push($(this).attr("data-index"));
+      else uniqueSubjectObj[$(this).attr("data-subject")] = [ $(this).attr("data-index") ];
+    })
+    for (var key in uniqueSubjectObj) {
+      if (!uniqueSubjectObj.hasOwnProperty(key))
+        continue;
+      if (uniqueSubjectObj[key].length == 1)
+        continue;
+      var duplicatedKeys = uniqueSubjectObj[key];
+      var preservedIndex = duplicatedKeys[0];
+      for (var i = 1; i <= duplicatedKeys.length - 1; i ++) {
+        $("#fillerstepper a[data-index=" + duplicatedKeys[i] + "]").remove();
+        $("#maincontainer div[data-index=" + preservedIndex + "] tbody").append($("#maincontainer div[data-index=" + duplicatedKeys[i] + "] tr:last"));
+        $("#maincontainer div[data-index=" + duplicatedKeys[i] + "]").remove();
+      }
+    }
+
     $("#fillerstepper a").on("click", function () {
       $("#fillerstepper a").removeClass("active");
       $(this).addClass("active");
@@ -59,6 +81,8 @@ $(document).ready(function () {
   if ($('#noaction').length > 0) {
     navigationT1Mng.checkStatus = 1;
   }  
+
+
 })
 
 var teachingPackMng = {};

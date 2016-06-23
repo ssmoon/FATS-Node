@@ -12,6 +12,11 @@ const constDefine = require('../../app/const');
 const webUtil = require('../../app/webutil');
 
 router.get('/Select', function(req, res, next) {
+  if (!userMng.getCurrentUserID(req.session))
+  {
+    res.redirect('/User/Login');
+    return;
+  }
   dbContext.TemplateRoutine.findAll({ where: { RoutineType: constDefine.RoutineType_Teaching1 } }).then(function(routines) {
     res.render('SelectCase', { routines: routines });
   })
